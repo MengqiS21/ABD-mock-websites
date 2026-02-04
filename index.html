@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABD - 5 Category Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #999;
+            font-size: 1.1rem;
+        }
+        
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .info-box p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+        
+        .category-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .category-card h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .category-card .description {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .category-card .key-failures {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .key-failures-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .key-failures ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .key-failures li {
+            color: #555;
+            font-size: 0.9rem;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .key-failures li:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 5px;
+        }
+        
+        .category-card a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .category-card a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .github-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid white;
+            padding-bottom: 2px;
+        }
+        
+        .github-link:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌐 5 category mock-up</h1>
+            <p>5 Category Mockups for WCAG Failure Testing</p>
+            <p class="subtitle">Generated websites to compare accessibility barrier</p>
+        </div>
+
+        <div class="info-box">
+            <h3>📋 About These Mock-ups</h3>
+            <p>
+                Here contains <strong>5 AI-generated website mockups</strong>, each representing a different category. 
+                These mockups are based on the design patterns of real websites currently in these categories, allowing us to observe whether they contain the key WCAG barriers we are concerned about. The potential key accessibility barriers for each category are listed below each mockup (note: these do not necessarily mean they will all appear in our mockups).
+            </p>
+        </div>
+
+        <div class="categories-grid">
+            <!-- E-COMMERCE -->
+            <div class="category-card">
+                <span class="category-icon">🛒</span>
+                <h2>E-commerce</h2>
+                <p class="description">
+                    Online shopping platform with product listings, cart, and checkout flow
+                </p>
+                <div class="key-failures">
+                    <div class="key-failures-title">Key Accessibility Barriers:</div>
+                    <ul>
+                        <li>F65: Product images missing alt text</li>
+                        <li>F30: Invalid/placeholder alt text</li>
+                        <li>F52: Keyboard traps in modals</li>
+                        <li>F3: CSS background images</li>
+                        <li>F59: Form fields without context</li>
+                    </ul>
+                </div>
+                <a href="ecommerce.html">View Mockup →</a>
+            </div>
+
+            <!-- GOVERNMENT SERVICES -->
+            <div class="category-card">
+                <span class="category-icon">🏛️</span>
+                <h2>Government Services</h2>
+                <p class="description">
+                    Government portal with forms, applications, and public information
+                </p>
+                <div class="key-failures">
+                    <div class="key-failures-title">Key Accessibility Barriers:</div>
+                    <ul>
+                        <li>F17: Missing form labels</li>
+                        <li>F42: Missing accessible names</li>
+                        <li>F44: Improper heading hierarchy</li>
+                        <li>F82: Form field identification issues</li>
+                        <li>F86: No validation error text</li>
+                    </ul>
+                </div>
+                <a href="government.html">View Mockup →</a>
+            </div>
+
+            <!-- SOCIAL MEDIA -->
+            <div class="category-card">
+                <span class="category-icon">📱</span>
+                <h2>Social Media</h2>
+                <p class="description">
+                    Social network with feeds, posts, comments, and real-time updates
+                </p>
+                <div class="key-failures">
+                    <div class="key-failures-title">Key Accessibility Barriers:</div>
+                    <ul>
+                        <li>F87: Dynamic updates without notification</li>
+                        <li>F65: User-uploaded images without alt</li>
+                        <li>F52: Infinite scroll keyboard traps</li>
+                        <li>F42: Interactive elements without semantics</li>
+                        <li>F19: Videos without captions</li>
+                    </ul>
+                </div>
+                <a href="social-media.html">View Mockup →</a>
+            </div>
+
+            <!-- NEWS & MEDIA -->
+            <div class="category-card">
+                <span class="category-icon">📰</span>
+                <h2>News & Media</h2>
+                <p class="description">
+                    News website with articles, videos, breaking news, and multimedia content
+                </p>
+                <div class="key-failures">
+                    <div class="key-failures-title">Key Accessibility Barriers:</div>
+                    <ul>
+                        <li>F19: Videos without captions/transcripts</li>
+                        <li>F44: Poor article heading structure</li>
+                        <li>F65: News images without descriptions</li>
+                        <li>F3: CSS hero images</li>
+                        <li>F47: Embedded content without alternatives</li>
+                    </ul>
+                </div>
+                <a href="news-media.html">View Mockup →</a>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="category-card">
+                <span class="category-icon">🎓</span>
+                <h2>Education</h2>
+                <p class="description">
+                    Learning platform with courses, lessons, quizzes, and educational content
+                </p>
+                <div class="key-failures">
+                    <div class="key-failures-title">Key Accessibility Barriers:</div>
+                    <ul>
+                        <li>F43: Improper structural markup</li>
+                        <li>F44: Complex course hierarchy issues</li>
+                        <li>F65: Educational diagrams without alt</li>
+                        <li>F17: Quiz form labels missing</li>
+                        <li>F19: Lecture videos without captions</li>
+                    </ul>
+                </div>
+                <a href="education.html">View Mockup →</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>ABD-LLM</p>
+            <p>5 Category Mockups | WCAG Failures</p>
+            <p><a href="https://github.com/your-username/accessibility-benchmark" class="github-link">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>
