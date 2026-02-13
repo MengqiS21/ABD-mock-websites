@@ -932,7 +932,6 @@
     </style>
 </head>
 <body>
-    <!-- Top Header -->
     <header class="top-header" id="header">
         <div class="header-content">
             <div class="logo">S</div>
@@ -970,9 +969,7 @@
         </div>
     </header>
 
-    <!-- Main Container -->
     <div class="main-container">
-        <!-- Left Sidebar -->
         <aside class="left-sidebar">
             <nav>
                 <ul class="nav-list">
@@ -1066,7 +1063,6 @@
             </div>
         </aside>
 
-        <!-- Main Feed -->
         <main class="main-feed">
             <div class="feed-header">
                 <div class="feed-tabs">
@@ -1076,7 +1072,6 @@
                 </div>
             </div>
 
-            <!-- Post Composer -->
             <div class="post-composer">
                 <div class="composer-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
                 <div class="composer-main">
@@ -1117,13 +1112,10 @@
                 </div>
             </div>
 
-            <!-- Posts Feed -->
             <div id="posts-feed"></div>
         </main>
 
-        <!-- Right Sidebar -->
         <aside class="right-sidebar">
-            <!-- Premium Card -->
             <div class="premium-card">
                 <h3 class="premium-title">Upgrade to Premium</h3>
                 <p class="premium-description">
@@ -1132,14 +1124,12 @@
                 <button class="premium-button">Subscribe</button>
             </div>
 
-            <!-- Trending -->
             <div class="sidebar-card">
                 <div class="card-title">Trending now</div>
                 <div id="trending-content"></div>
                 <div class="show-more">Show more</div>
             </div>
 
-            <!-- Who to Follow -->
             <div class="sidebar-card">
                 <div class="card-title">Who to follow</div>
                 <div id="suggestions-content"></div>
@@ -1240,6 +1230,12 @@
                 setTimeout(() => {
                     const postEl = document.createElement('div');
                     postEl.className = 'post-card';
+                    
+                    // Interaction: Navigate to detail page
+                    postEl.onclick = function() {
+                        window.location.href = 'social-media-detail.html';
+                    };
+
                     postEl.innerHTML = `
                         <div class="post-avatar" style="background: ${post.avatar};"></div>
                         <div class="post-content">
@@ -1335,6 +1331,8 @@
             if (e.target.closest('.like-btn')) {
                 const btn = e.target.closest('.like-btn');
                 btn.classList.toggle('liked');
+                // Prevent navigating to detail page when clicking like
+                e.stopPropagation();
             }
         });
 
