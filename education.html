@@ -5,64 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LearnHub - Transform Your Future Through Learning</title>
     <style>
-        /* --- 这里完全保留你原版的所有 CSS 变量和样式 --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --primary-blue: #0056d2; --primary-purple: #7c3aed; --accent-green: #10b981;
-            --accent-orange: #f59e0b; --accent-pink: #ec4899; --accent-cyan: #06b6d4;
-            --bg-primary: #ffffff; --bg-secondary: #f9fafb; --text-primary: #111827;
-            --text-secondary: #6b7280; --border-light: #e5e7eb; --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        /* --- 完全保留您的原版 CSS 样式 --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        body { font-family: -apple-system, sans-serif; color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Announcement & Header (保持原版设计) */
-        .announcement-bar { background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%); color: white; padding: 12px 20px; text-align: center; font-size: 14px; position: relative; }
-        .global-header { background: var(--bg-primary); border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 1000; }
-        .header-content { max-width: 1400px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; height: 72px; gap: 32px; }
-        .logo { font-size: 28px; font-weight: 900; background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-        
-        /* Search Box */
-        .search-container { flex: 1; max-width: 600px; }
-        .search-input { width: 100%; height: 48px; padding: 0 20px; border: 2px solid var(--border-light); border-radius: 24px; background: var(--bg-secondary); }
 
-        /* 原版生动的 Learning Mode 卡片样式 */
+        :root {
+            --primary-blue: #0056d2;
+            --primary-purple: #7c3aed;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-pink: #ec4899;
+            --accent-cyan: #06b6d4;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --border-light: #e5e7eb;
+            --border-medium: #d1d5db;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
+            --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.6;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .close-announcement {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /* Header & Navbar */
+        .global-header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            height: 72px;
+            gap: 32px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .search-container { flex: 1; max-width: 600px; }
+        .search-wrapper { position: relative; }
+        .search-input {
+            width: 100%;
+            height: 48px;
+            padding: 0 20px;
+            border: 2px solid var(--border-light);
+            border-radius: 24px;
+            background: var(--bg-secondary);
+        }
+
+        /* 学习模式卡片 (生动的彩色卡片) */
         .learning-modes { padding: 80px 20px; background: var(--bg-secondary); }
         .mode-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-        .mode-card { border-radius: 16px; padding: 32px 24px; text-align: center; cursor: pointer; transition: all var(--transition); color: white; }
-        .mode-card:hover { transform: translateY(-8px); }
-        .mode-card-green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
-        .mode-card-orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
-        .mode-card-pink { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
-        .mode-card-cyan { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+        .mode-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+        .mode-card-green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; }
+        .mode-card-orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; }
+        .mode-card-pink { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); color: white; }
+        .mode-card-cyan { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); color: white; }
+        .mode-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
         .mode-icon { font-size: 36px; margin-bottom: 20px; }
 
-        /* Course Carousel 样式 (修复跳转用) */
-        .featured-courses { padding: 80px 20px; }
+        /* 课程卡片 */
         .course-carousel { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 16px; scrollbar-width: none; }
-        .course-card { flex: 0 0 320px; background: white; border: 2px solid var(--border-light); border-radius: 16px; overflow: hidden; cursor: pointer; transition: all var(--transition); text-decoration: none; color: inherit; display: block; }
-        .course-card:hover { transform: translateY(-8px); border-color: var(--primary-blue); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-        .course-image { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; }
+        .course-card {
+            flex: 0 0 320px;
+            background: white;
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none; /* 移除 a 标签下划线 */
+            color: inherit;
+            transition: all var(--transition);
+        }
+        .course-card:hover { transform: translateY(-8px); border-color: var(--primary-blue); box-shadow: var(--shadow-lg); }
+        .course-image {
+            width: 100%; aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+            display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;
+        }
         .course-content { padding: 24px; }
-        .course-category { display: inline-block; padding: 4px 12px; background: var(--bg-secondary); border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--primary-blue); text-transform: uppercase; margin-bottom: 12px; }
-        .course-stats { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border-light); }
+        .course-category { color: var(--primary-blue); font-weight: 600; font-size: 12px; text-transform: uppercase; }
+        .course-stats { display: flex; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-light); }
         .stat-value { font-size: 20px; font-weight: 700; color: var(--primary-blue); }
-        .stat-label { font-size: 12px; color: #9ca3af; text-transform: uppercase; }
+
+        /* 价格计划卡片 */
+        .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+        .plan-card { background: white; border: 3px solid var(--border-light); border-radius: 20px; padding: 40px; }
+        .plan-card.featured { border-color: var(--primary-blue); box-shadow: var(--shadow-xl); transform: scale(1.05); }
+
+        /* 按钮 */
+        .btn-primary { padding: 12px 24px; background: var(--primary-blue); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; }
+        .btn-secondary { padding: 12px 24px; background: transparent; color: var(--text-primary); border: 2px solid var(--border-medium); border-radius: 8px; font-weight: 700; cursor: pointer; }
     </style>
 </head>
 <body>
     <div class="announcement-bar" id="announcement">
         <div class="announcement-content">🎉 New Year Sale: Get 50% off Premium membership - Limited time offer!</div>
-        <button style="position:absolute; right:20px; top:12px; background:none; border:none; color:white; cursor:pointer;" onclick="this.parentElement.style.display='none'">×</button>
+        <button class="close-announcement" onclick="document.getElementById('announcement').style.display='none'">×</button>
     </div>
 
     <header class="global-header">
         <div class="header-content">
             <a href="index.html" class="logo">LearnHub</a>
-            <div class="search-container"><input type="search" class="search-input" placeholder="What do you want to learn?"></div>
-            <nav style="display:flex; gap:10px;">
-                <button style="background:none; border:none; font-weight:600; cursor:pointer;">Log In</button>
-                <button style="background:var(--primary-blue); color:white; border:none; padding:10px 20px; border-radius:8px; font-weight:700; cursor:pointer;">Join Free</button>
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="search" class="search-input" id="course-search" placeholder="What do you want to learn?">
+                </div>
+            </div>
+            <nav class="header-nav" style="display:flex; gap:10px;">
+                <button class="btn-secondary" onclick="alert('Redirecting to Login...')">Log In</button>
+                <button class="btn-primary" onclick="alert('Join LearnHub today!')">Join Free</button>
             </nav>
         </div>
     </header>
@@ -71,42 +181,84 @@
         <div class="container">
             <h2 style="text-align:center; margin-bottom:40px; font-size:42px;">Choose Your Learning Style</h2>
             <div class="mode-cards">
-                <div class="mode-card mode-card-green" onclick="alert('Study Mode')"><div class="mode-icon">📚</div><h3>Study</h3><p>Self-paced materials</p></div>
-                <div class="mode-card mode-card-orange" onclick="alert('Flashcards')"><div class="mode-icon">🎴</div><h3>Flashcards</h3><p>Memorize concepts</p></div>
-                <div class="mode-card mode-card-pink" onclick="alert('Test Mode')"><div class="mode-icon">✅</div><h3>Test</h3><p>Assess knowledge</p></div>
-                <div class="mode-card mode-card-cyan" onclick="alert('Practice Mode')"><div class="mode-icon">🎮</div><h3>Practice</h3><p>Hands-on exercise</p></div>
+                <div class="mode-card mode-card-green" onclick="alert('Entering Study Mode...')">
+                    <div class="mode-icon">📚</div>
+                    <h3 class="mode-title">Study</h3>
+                    <p>Self-paced materials</p>
+                </div>
+                <div class="mode-card mode-card-orange" onclick="alert('Loading Flashcards...')">
+                    <div class="mode-icon">🎴</div>
+                    <h3 class="mode-title">Flashcards</h3>
+                    <p>Memorize concepts</p>
+                </div>
+                <div class="mode-card mode-card-pink" onclick="alert('Assessment starting...')">
+                    <div class="mode-icon">✅</div>
+                    <h3 class="mode-title">Test</h3>
+                    <p>Assess knowledge</p>
+                </div>
+                <div class="mode-card mode-card-cyan" onclick="alert('Practice exercise ready!')">
+                    <div class="mode-icon">🎮</div>
+                    <h3 class="mode-title">Practice</h3>
+                    <p>Hands-on exercise</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="featured-courses">
+    <section class="featured-courses" style="padding: 80px 0;">
         <div class="container">
             <h2 style="font-size:32px; margin-bottom:40px;">Trending Courses</h2>
             <div class="course-carousel" id="course-carousel"></div>
         </div>
     </section>
 
+    <section class="plan-comparison" style="padding: 80px 0; background: var(--bg-secondary);">
+        <div class="container">
+            <h2 style="text-align:center; font-size:42px;">Choose Your Plan</h2>
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <h3 style="font-size:28px;">Basic</h3>
+                    <div style="font-size:48px; font-weight:900; color:var(--primary-blue); margin:20px 0;">Free</div>
+                    <button class="btn-secondary" style="width:100%;">Get Started</button>
+                </div>
+                <div class="plan-card featured">
+                    <h3 style="font-size:28px;">Premium</h3>
+                    <div style="font-size:48px; font-weight:900; color:var(--primary-blue); margin:20px 0;">$29<span>/mo</span></div>
+                    <button class="btn-primary" style="width:100%;">Start Trial</button>
+                </div>
+                <div class="plan-card">
+                    <h3 style="font-size:28px;">Enterprise</h3>
+                    <div style="font-size:48px; font-weight:900; color:var(--primary-blue); margin:20px 0;">Custom</div>
+                    <button class="btn-secondary" style="width:100%;">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
+        // 模拟课程数据
         const courses = [
             { id: 1, category: 'AI & ML', title: 'Machine Learning Fundamentals', rating: 4.8, students: '125K', lessons: 42, hours: 15 },
             { id: 2, category: 'Web Dev', title: 'Full-Stack Web Development', rating: 4.9, students: '230K', lessons: 68, hours: 30 },
             { id: 3, category: 'Data', title: 'Data Science with Python', rating: 4.7, students: '180K', lessons: 54, hours: 22 },
-            { id: 4, category: 'Design', title: 'UI/UX Design Masterclass', rating: 4.9, students: '95K', lessons: 38, hours: 18 }
+            { id: 4, category: 'Design', title: 'UI/UX Design Masterclass', rating: 4.9, students: '95K', lessons: 38, hours: 18 },
+            { id: 5, category: 'Business', title: 'Digital Marketing Strategy', rating: 4.6, students: '150K', lessons: 46, hours: 20 },
+            { id: 6, category: 'Finance', title: 'Financial Analysis & Valuation', rating: 4.8, students: '85K', lessons: 32, hours: 16 }
         ];
 
+        // 核心修改：渲染课程卡片，点击跳转到详情页
         const carousel = document.getElementById('course-carousel');
         courses.forEach(course => {
-            // 核心修复：这里使用 <a> 标签包裹，解决“点击只跳到顶端”的问题
-            const card = document.createElement('a');
+            const card = document.createElement('a'); // 修改为 a 标签
             card.className = 'course-card';
-            card.href = `education-detail.html?id=${course.id}`; // 确保跳转到详情页
+            card.href = `education-detail.html?id=${course.id}`; // 关键：配置跳转链接
             
             card.innerHTML = `
                 <div class="course-image">${course.category}</div>
                 <div class="course-content">
                     <span class="course-category">${course.category}</span>
-                    <h3 style="font-size:18px; margin-bottom:12px;">${course.title}</h3>
-                    <div style="color:var(--accent-orange); font-weight:600; margin-bottom:16px;">⭐ ${course.rating} · ${course.students} students</div>
+                    <h3 class="course-title">${course.title}</h3>
+                    <div style="margin:10px 0; font-weight:600; color:var(--accent-orange);">⭐ ${course.rating}</div>
                     <div class="course-stats">
                         <div class="course-stat"><div class="stat-value">${course.lessons}</div><div class="stat-label">Lessons</div></div>
                         <div class="course-stat"><div class="stat-value">${course.hours}h</div><div class="stat-label">Duration</div></div>
@@ -114,6 +266,11 @@
                 </div>
             `;
             carousel.appendChild(card);
+        });
+
+        // 搜索框回车监听
+        document.getElementById('course-search').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') alert('Searching for: ' + e.target.value);
         });
     </script>
 </body>
