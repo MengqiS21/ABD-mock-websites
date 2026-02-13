@@ -1385,32 +1385,34 @@
         ];
 
         // Render Courses
+        // 修改 Render Courses 部分
         const carousel = document.getElementById('course-carousel');
         courses.forEach(course => {
             const card = document.createElement('div');
             card.className = 'course-card';
+    // 关键：添加跳转链接，通过 id 传递数据
             card.innerHTML = `
-                <div class="course-image">[Course Image]</div>
-                <div class="course-content">
-                    <span class="course-category">${course.category}</span>
-                    <h3 class="course-title">${course.title}</h3>
-                    <div class="course-meta">
-                        <div class="course-rating">
-                            ⭐ ${course.rating}
+                <a href="education-detail.html?id=${course.id}" style="text-decoration: none; color: inherit;">
+                    <div class="course-image">[Course Image]</div>
+                    <div class="course-content">
+                        <span class="course-category">${course.category}</span>
+                        <h3 class="course-title">${course.title}</h3>
+                        <div class="course-meta">
+                            <div class="course-rating">⭐ ${course.rating}</div>
+                            <span>${course.students} students</span>
                         </div>
-                        <span>${course.students} students</span>
+                        <div class="course-stats">
+                            <div class="course-stat">
+                                <div class="stat-value">${course.lessons}</div>
+                                <div class="stat-label">Lessons</div>
+                            </div>
+                            <div class="course-stat">
+                                <div class="stat-value">${course.hours}h</div>
+                                <div class="stat-label">Duration</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="course-stats">
-                        <div class="course-stat">
-                            <div class="stat-value">${course.lessons}</div>
-                            <div class="stat-label">Lessons</div>
-                        </div>
-                        <div class="course-stat">
-                            <div class="stat-value">${course.hours}h</div>
-                            <div class="stat-label">Duration</div>
-                        </div>
-                    </div>
-                </div>
+                </a>
             `;
             carousel.appendChild(card);
         });
