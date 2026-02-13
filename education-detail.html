@@ -2,81 +2,226 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Detail - LearnHub</title>
     <style>
+        /* 继承原版的色彩变量 */
         :root {
-            --primary-blue: #0056d2; --primary-purple: #7c3aed;
-            --text-primary: #111827; --text-secondary: #6b7280;
-            --bg-secondary: #f9fafb; --border-light: #e5e7eb;
+            --primary-blue: #0056d2;
+            --primary-purple: #7c3aed;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --bg-secondary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border-light: #e5e7eb;
         }
-        body { font-family: sans-serif; margin: 0; color: var(--text-primary); background: white; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* 详情页特有样式 */
-        .pdp-header { background: #001e4d; color: white; padding: 60px 0; }
-        .breadcrumb { font-size: 14px; margin-bottom: 20px; }
-        .breadcrumb a { color: #60a5fa; text-decoration: none; }
-        
-        .pdp-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-top: -40px; }
-        .pdp-main { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .pdp-sidebar { background: white; padding: 30px; border-radius: 16px; border: 1px solid var(--border-light); height: fit-content; position: sticky; top: 20px; }
-        
-        .btn-enroll { width: 100%; padding: 18px; background: var(--primary-blue); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            background-color: white;
+            color: var(--text-primary);
+        }
+
+        /* Header 样式 */
+        .pdp-header {
+            background: linear-gradient(135deg, #001e4d 0%, #0056d2 100%);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover { color: white; }
+
+        .course-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* 布局网格 */
+        .pdp-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: -40px;
+        }
+
+        /* 左侧主内容 */
+        .main-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-light);
+        }
+
+        h1 { font-size: 2.5rem; margin: 0 0 15px 0; }
+
+        .curriculum-section { margin-top: 40px; }
+        .lesson-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-light);
+            transition: 0.2s;
+        }
+        .lesson-item:hover { background: var(--bg-secondary); }
+
+        /* 右侧侧边栏 */
+        .sidebar-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .enroll-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
-    <div class="pdp-header">
+
+    <header class="pdp-header">
         <div class="container">
-            <div class="breadcrumb"><a href="education.html">Courses</a> / <span id="bread-cat">Category</span></div>
-            <h1 id="course-title" style="font-size: 36px;">Course Title</h1>
-            <p id="course-rating">⭐ 4.8 (12,000 ratings)</p>
+            <a href="education.html" class="back-link">← Back to Courses</a>
+            <div id="badge-container"></div>
+            <h1 id="course-title">Loading Course...</h1>
+            <p id="course-meta" style="opacity: 0.9;"></p>
         </div>
-    </div>
+    </header>
 
     <div class="container pdp-grid">
-        <div class="pdp-main">
-            <h2>What you'll learn</h2>
-            <ul id="learn-list" style="columns: 2;">
-                <li>Comprehensive understanding of core concepts</li>
-                <li>Real-world project implementation</li>
-                <li>Industry best practices and tools</li>
-                <li>Advanced optimization techniques</li>
-            </ul>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-            <h3>Curriculum</h3>
-            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                <p>Section 1: Introduction (3 lessons)</p>
-                <p>Section 2: Core Modules (10 lessons)</p>
-                <p>Section 3: Final Project (1 lesson)</p>
+        <div class="main-card">
+            <h3>Course Description</h3>
+            <p id="course-desc" style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">
+                This comprehensive course is designed to take you from fundamentals to advanced mastery. 
+                You will engage with real-world projects and expert insights.
+            </p>
+
+            <div class="curriculum-section">
+                <h3>Curriculum</h3>
+                <div class="lesson-item">
+                    <span>1. Introduction & Setup</span>
+                    <span style="color: var(--primary-blue); font-weight: 600;">15:00</span>
+                </div>
+                <div class="lesson-item">
+                    <span>2. Core Concepts Masterclass</span>
+                    <span style="color: var(--primary-blue); font-weight: 600;">45:00</span>
+                </div>
+                <div class="lesson-item">
+                    <span>3. Practical Application & Lab</span>
+                    <span style="color: var(--primary-blue); font-weight: 600;">1:20:00</span>
+                </div>
+                <div class="lesson-item">
+                    <span>4. Final Project Review</span>
+                    <span style="color: var(--primary-blue); font-weight: 600;">30:00</span>
+                </div>
             </div>
         </div>
 
-        <div class="pdp-sidebar">
-            <div style="font-size: 28px; font-weight: bold; margin-bottom: 20px;">Free Access</div>
-            <button class="btn-enroll" onclick="alert('Enrollment successful!')">Enroll Now</button>
-            <p style="font-size: 13px; text-align: center; color: #666; margin-top: 15px;">Full lifetime access on mobile and TV</p>
+        <div class="sidebar-card">
+            <div style="font-size: 2.2rem; font-weight: 800; margin-bottom: 10px;">Free</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">Limited time free access</p>
+            
+            <ul class="features-list">
+                <li>✅ Full lifetime access</li>
+                <li>✅ Access on mobile and TV</li>
+                <li>✅ Certificate of completion</li>
+                <li>✅ 12 downloadable resources</li>
+            </ul>
+
+            <button class="enroll-btn" onclick="this.innerText='Enrolled ✅'; this.style.background='#10b981';">Enroll Now</button>
+            <p style="text-align: center; font-size: 0.8rem; color: var(--text-tertiary); margin-top: 15px;">
+                Join over 5,000+ students today
+            </p>
         </div>
     </div>
 
     <script>
+        // 模拟与列表页一致的数据集
         const courses = [
-            { id: 1, category: 'AI & ML', title: 'Machine Learning Fundamentals' },
-            { id: 2, category: 'Web Dev', title: 'Full-Stack Web Development' },
-            { id: 3, category: 'Data', title: 'Data Science with Python' },
-            { id: 4, category: 'Design', title: 'UI/UX Design Masterclass' },
-            { id: 5, category: 'Business', title: 'Digital Marketing Strategy' },
-            { id: 6, category: 'Finance', title: 'Financial Analysis & Valuation' }
+            { id: 1, category: 'AI & ML', title: 'Machine Learning Fundamentals', students: '125K', rating: 4.8 },
+            { id: 2, category: 'Web Dev', title: 'Full-Stack Web Development', students: '230K', rating: 4.9 },
+            { id: 3, category: 'Data', title: 'Data Science with Python', students: '180K', rating: 4.7 },
+            { id: 4, category: 'Design', title: 'UI/UX Design Masterclass', students: '95K', rating: 4.9 },
+            { id: 5, category: 'Business', title: 'Digital Marketing Strategy', students: '150K', rating: 4.6 },
+            { id: 6, category: 'Finance', title: 'Financial Analysis & Valuation', students: '85K', rating: 4.8 }
         ];
 
-        // 获取 URL 中的 ID 参数
-        const params = new URLSearchParams(window.location.search);
-        const id = parseInt(params.get('id'));
-        const course = courses.find(c => c.id === id) || courses[0];
+        // 获取参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseId = parseInt(urlParams.get('id'));
 
-        // 渲染页面数据
-        document.getElementById('bread-cat').innerText = course.category;
+        // 查找匹配课程
+        const course = courses.find(c => c.id === courseId) || courses[0];
+
+        // 动态渲染页面内容
         document.getElementById('course-title').innerText = course.title;
-        document.title = course.title + " - LearnHub";
+        document.getElementById('badge-container').innerHTML = `<span class="course-badge">${course.category}</span>`;
+        document.getElementById('course-meta').innerText = `⭐ ${course.rating} Rating • ${course.students} Students Enrolled`;
+        
+        // 更新页面标题
+        document.title = `${course.title} - LearnHub`;
     </script>
 </body>
 </html>
