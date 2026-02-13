@@ -5,334 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post Detail - Sphere</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* 样式与主页 100% 保持一致 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #1d9bf0;
-            --primary-hover: #1a8cd8;
-            --primary-light: #e8f5fd;
-            --success: #00ba7c;
-            --error: #f4212e;
-            --warning: #ffad1f;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f7f9f9;
-            --bg-tertiary: #eff3f4;
-            --bg-hover: rgba(15, 20, 25, 0.03);
-            --text-primary: #0f1419;
-            --text-secondary: #536471;
-            --text-tertiary: #8b98a5;
-            --border-primary: #eff3f4;
-            --border-secondary: #cfd9de;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #1d9bf0; --bg-primary: #ffffff; --bg-secondary: #f7f9f9;
+            --text-primary: #0f1419; --text-secondary: #536471; --border-primary: #eff3f4;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Top Header */
-        .top-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--border-primary);
-        }
-
-        .header-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 16px;
-            display: flex;
-            align-items: center;
-            height: 56px;
-            gap: 20px;
-        }
-
-        .logo {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            cursor: pointer;
-        }
-
-        .search-container { flex: 1; max-width: 600px; position: relative; }
-        .search-input {
-            width: 100%;
-            height: 42px;
-            padding: 0 16px 0 48px;
-            border: 1px solid transparent;
-            border-radius: 9999px;
-            background: var(--bg-secondary);
-        }
-
-        .main-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 275px 1fr 350px;
-            gap: 32px;
-            padding: 0 16px;
-        }
-
-        /* Sidebar & Nav Styles */
-        .left-sidebar { position: sticky; top: 72px; height: fit-content; padding: 12px 0; }
-        .nav-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 12px 16px;
-            border-radius: 9999px;
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-size: 20px;
-        }
-        .nav-item:hover { background: var(--bg-hover); }
-
-        /* Main Feed detail-specific */
-        .main-feed {
-            border-left: 1px solid var(--border-primary);
-            border-right: 1px solid var(--border-primary);
-            min-height: 100vh;
-        }
-
-        /* Back Header */
-        .detail-nav-header {
-            position: sticky;
-            top: 56px;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            padding: 0 16px;
-            height: 53px;
-        }
-
-        .back-btn {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .back-btn:hover { background: var(--bg-hover); }
-
-        .header-title { font-size: 20px; font-weight: 700; }
-
-        /* Detail Card */
-        .post-detail-content {
-            padding: 16px;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .user-info-large { display: flex; gap: 12px; margin-bottom: 16px; }
-        .user-avatar-large { width: 48px; height: 48px; border-radius: 50%; }
-        .user-names { display: flex; flex-direction: column; }
-        .full-name { font-weight: 700; font-size: 16px; }
-        .handle-name { color: var(--text-secondary); font-size: 15px; }
-
-        .post-text-large { font-size: 23px; line-height: 1.3; margin-bottom: 16px; color: var(--text-primary); }
-        .post-metadata { color: var(--text-secondary); font-size: 15px; padding-bottom: 16px; border-bottom: 1px solid var(--border-primary); margin-bottom: 16px; }
-        
-        /* Stats row */
-        .post-stats-row {
-            display: flex;
-            gap: 20px;
-            padding: 12px 4px;
-            border-bottom: 1px solid var(--border-primary);
-            margin-bottom: 4px;
-        }
-        .stat-item { font-size: 15px; color: var(--text-secondary); }
-        .stat-count { font-weight: 700; color: var(--text-primary); }
-
-        /* Action Buttons Row */
-        .post-actions-row {
-            display: flex;
-            justify-content: space-around;
-            padding: 4px 0;
-            border-bottom: 1px solid var(--border-primary);
-        }
-
-        .action-icon-btn {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--text-secondary);
-            transition: all 0.2s;
-        }
-        .action-icon-btn:hover { background: rgba(29, 155, 240, 0.1); color: var(--primary); }
-
-        /* Composer override for reply */
-        .reply-composer {
-            padding: 16px;
-            display: flex;
-            gap: 12px;
-            border-bottom: 1px solid var(--border-primary);
-        }
-
-        .composer-avatar { width: 40px; height: 40px; border-radius: 50%; }
-        .composer-main { flex: 1; }
-        .composer-textarea {
-            width: 100%;
-            border: none;
-            font-size: 20px;
-            resize: none;
-            padding: 8px 0;
-            outline: none;
-        }
-        .composer-footer { display: flex; justify-content: flex-end; padding-top: 12px; }
-
-        .post-button {
-            height: 36px;
-            padding: 0 20px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 9999px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        /* Right Sidebar Cards */
-        .right-sidebar { position: sticky; top: 72px; padding: 12px 0; }
-        .sidebar-card { background: var(--bg-secondary); border-radius: 16px; overflow: hidden; margin-bottom: 16px; }
-        .card-title { padding: 16px; font-size: 20px; font-weight: 700; border-bottom: 1px solid var(--border-primary); }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .main-container { grid-template-columns: 88px 1fr; }
-            .right-sidebar { display: none; }
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg-primary); color: var(--text-primary); }
+        .top-header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-primary); height: 56px; }
+        .header-content { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; padding: 0 16px; height: 100%; }
+        .logo { width: 32px; height: 32px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; cursor: pointer; }
+        .main-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 275px 1fr 350px; gap: 32px; padding: 0 16px; }
+        .main-feed { border-left: 1px solid var(--border-primary); border-right: 1px solid var(--border-primary); min-height: 100vh; }
+        .nav-header { display: flex; align-items: center; gap: 20px; padding: 0 16px; height: 53px; border-bottom: 1px solid var(--border-primary); position: sticky; top: 56px; background: white; }
+        .back-btn { cursor: pointer; font-size: 20px; padding: 8px; border-radius: 50%; }
+        .back-btn:hover { background: #eee; }
+        .detail-content { padding: 16px; }
+        .user-block { display: flex; gap: 12px; margin-bottom: 16px; }
+        .avatar-large { width: 48px; height: 48px; border-radius: 50%; }
+        .author-name { font-weight: 700; font-size: 16px; }
+        .post-body-large { font-size: 23px; line-height: 1.3; margin-bottom: 20px; }
+        .stats-bar { padding: 16px 0; border-top: 1px solid var(--border-primary); border-bottom: 1px solid var(--border-primary); color: var(--text-secondary); }
     </style>
 </head>
 <body>
-    <header class="top-header" id="header">
-        <div class="header-content">
-            <div class="logo" onclick="window.location.href='social-media.html'">S</div>
-            <div class="search-container"><input type="search" class="search-input" placeholder="Search Sphere"></div>
-        </div>
-    </header>
-
+    <header class="top-header"><div class="header-content"><div class="logo" onclick="location.href='social-media.html'"></div></div></header>
     <div class="main-container">
-        <aside class="left-sidebar">
-            <nav>
-                <ul class="nav-list">
-                    <li><a href="social-media.html" class="nav-item"><span class="nav-label">Home</span></a></li>
-                    <li><a href="#" class="nav-item"><span class="nav-label">Explore</span></a></li>
-                    <li><a href="#" class="nav-item"><span class="nav-label">Notifications</span></a></li>
-                    <li><a href="#" class="nav-item"><span class="nav-label">Messages</span></a></li>
-                    <li><a href="#" class="nav-item"><span class="nav-label">Bookmarks</span></a></li>
-                    <li><a href="#" class="nav-item"><span class="nav-label">Profile</span></a></li>
-                </ul>
-            </nav>
-        </aside>
-
+        <aside class="left-sidebar"></aside>
         <main class="main-feed">
-            <div class="detail-nav-header">
-                <div class="back-btn" onclick="window.location.href='social-media.html'">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="19" y1="12" x2="5" y2="12"></line>
-                        <polyline points="12 19 5 12 12 5"></polyline>
-                    </svg>
+            <div class="nav-header"><div class="back-btn" onclick="location.href='social-media.html'">←</div><div style="font-weight:700">Post</div></div>
+            <div id="detail-target" class="detail-content">
                 </div>
-                <h2 class="header-title">Post</h2>
-            </div>
-
-            <div class="post-detail-content">
-                <div class="user-info-large">
-                    <div class="user-avatar-large" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%)"></div>
-                    <div class="user-names">
-                        <span class="full-name">Emma Chen</span>
-                        <span class="handle-name">@emmachen</span>
-                    </div>
-                </div>
-
-                <div class="post-text-large">
-                    Just shipped the biggest feature of my career! 🚀 Our team worked tirelessly to make this happen. Thank you to everyone who believed in the vision from day one.
-                </div>
-
-                <div class="post-metadata">
-                    3:42 PM · Feb 13, 2026 · <span style="font-weight:700; color:var(--text-primary)">127K</span> Views
-                </div>
-
-                <div class="post-stats-row">
-                    <div class="stat-item"><span class="stat-count">892</span> Retweets</div>
-                    <div class="stat-item"><span class="stat-count">124</span> Quotes</div>
-                    <div class="stat-item"><span class="stat-count">4,521</span> Likes</div>
-                    <div class="stat-item"><span class="stat-count">56</span> Bookmarks</div>
-                </div>
-
-                <div class="post-actions-row">
-                    <div class="action-icon-btn"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
-                    <div class="action-icon-btn"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg></div>
-                    <div class="action-icon-btn"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
-                    <div class="action-icon-btn"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
-                </div>
-            </div>
-
-            <div class="reply-composer">
-                <div class="composer-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)"></div>
-                <div class="composer-main">
-                    <textarea class="composer-textarea" placeholder="Post your reply" rows="1"></textarea>
-                    <div class="composer-footer">
-                        <button class="post-button">Reply</button>
-                    </div>
-                </div>
-            </div>
         </main>
-
-        <aside class="right-sidebar">
-            <div class="sidebar-card">
-                <div class="card-title">Trending now</div>
-                <div style="padding:16px; color:var(--text-secondary)">#AIRevolution<br>#NewRelease</div>
-            </div>
-        </aside>
+        <aside class="right-sidebar"></aside>
     </div>
 
     <script>
-        // Auto-resize reply textarea
-        const textarea = document.querySelector('.composer-textarea');
-        textarea.addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = this.scrollHeight + 'px';
-        });
+        // 同样的数据源
+        const posts = [
+            { id: 1, author: 'Emma Chen', handle: '@emmachen', text: 'Just shipped the biggest feature of my career! 🚀 Our team worked tirelessly to make this happen.', avatar: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', likes: '4,521', views: '127K' },
+            { id: 2, author: 'Tech Pulse', handle: '@techpulse', text: 'BREAKING: Major AI breakthrough announced. This changes everything we know about machine learning.', avatar: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', likes: '31,245', views: '892K' },
+            { id: 3, author: 'Sarah Miller', handle: '@sarahmdesign', text: 'New design system just dropped 🎨 Spent 6 months perfecting every detail.', avatar: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', likes: '5,892', views: '89K' }
+        ];
+
+        // 解析 URL 参数中的 ID
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = parseInt(urlParams.get('id'));
+
+        // 查找对应数据
+        const post = posts.find(p => p.id === postId);
+
+        if (post) {
+            document.getElementById('detail-target').innerHTML = `
+                <div class="user-block">
+                    <div class="avatar-large" style="background: ${post.avatar}"></div>
+                    <div><div class="author-name">${post.author}</div><div style="color:var(--text-secondary)">${post.handle}</div></div>
+                </div>
+                <div class="post-body-large">${post.text}</div>
+                <div class="stats-bar"><strong>${post.likes}</strong> Likes · <strong>${post.views}</strong> Views</div>
+            `;
+        } else {
+            document.getElementById('detail-target').innerHTML = "<p>Post not found.</p>";
+        }
     </script>
 </body>
 </html>
