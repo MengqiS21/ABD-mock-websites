@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELITE Marketplace — Premium E-commerce</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELITE Marketplace - Premium E-commerce</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- ── Utility Top Bar ────────────────────────────────────── -->
+  <!-- Utility Top Bar -->
   <div class="utility-bar">
     <div class="container">
       <div class="utility-left">
-        <a href="#" style="display:flex;align-items:center;gap:.375rem;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="#" style="display: flex; align-items: center; gap: 0.375rem;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           <span>Deliver to: 98101</span>
         </a>
-        <span style="color:var(--slate-300);">Free shipping on orders over $50</span>
+        <span style="color: var(--slate-300);">Free shipping on orders over $50</span>
       </div>
       <div class="utility-right">
         <a href="#">Help</a>
         <a href="#">Sign In</a>
-        <a href="#" style="display:flex;align-items:center;gap:.25rem;">EN
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        <a href="#" style="display: flex; align-items: center; gap: 0.25rem;">
+          EN
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- ── Main Header ────────────────────────────────────────── -->
+  <!-- Main Header -->
   <header class="main-header">
     <div class="container">
       <div class="header-content">
         <button class="mobile-menu-btn" onclick="alert('Mobile menu would open')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
+
+        <!-- Logo now links to home -->
         <a href="index.html" class="logo">
           <div class="logo-icon">E</div>
           <div class="logo-text">
@@ -42,37 +44,42 @@
             <div class="logo-subtitle">MARKETPLACE</div>
           </div>
         </a>
+
         <div class="search-container">
           <div class="search-bar">
             <select class="search-category">
               <option>All Categories</option>
               <option>Electronics</option>
               <option>Fashion</option>
-              <option>Home &amp; Living</option>
+              <option>Home & Living</option>
               <option>Beauty</option>
               <option>Sports</option>
             </select>
-            <input type="text" class="search-input" placeholder="Search for products, brands, and more...">
-            <button class="search-button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" class="search-input" placeholder="Search for products, brands, and more..." />
+            <button class="search-button" aria-label="Search">
+              <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
             </button>
           </div>
         </div>
+
         <div class="header-actions">
-          <button class="header-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <button class="header-btn" onclick="alert('Account (mock)')">
+            <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             <span class="header-btn-label">Account</span>
           </button>
-          <button class="header-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+
+          <button class="header-btn" onclick="alert('Orders (mock)')">
+            <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
             <span class="header-btn-label">Orders</span>
           </button>
-          <button class="header-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+
+          <button class="header-btn" onclick="alert('Wishlist (mock)')">
+            <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
             <span class="badge badge-red">7</span>
           </button>
-          <button class="header-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+
+          <button class="header-btn" onclick="alert('Cart (mock)')">
+            <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
             <span class="badge">3</span>
           </button>
         </div>
@@ -80,32 +87,24 @@
     </div>
   </header>
 
-  <!-- ── Category Navigation ────────────────────────────────── -->
+  <!-- Category Navigation -->
   <nav class="category-nav">
     <div class="container">
       <div class="category-menu">
         <button class="category-item">Electronics</button>
         <button class="category-item">Fashion</button>
-        <button class="category-item">Home &amp; Living</button>
+        <button class="category-item">Home & Living</button>
         <button class="category-item">Beauty</button>
         <button class="category-item">Sports</button>
       </div>
-      <button class="premium-btn">⭐ Join Premium</button>
+      <button class="premium-btn" onclick="alert('Premium (mock)')">⭐ Join Premium</button>
     </div>
   </nav>
 
-  <!-- ── Search / category filter banner (shown when ?search= or ?cat=) ── -->
-  <div class="search-results-banner" id="filter-banner" style="display:none;">
-    <div class="container">
-      <h2 id="filter-title"></h2>
-      <button class="clear-filter" onclick="window.location.href='index.html'">✕ Clear</button>
-    </div>
-  </div>
-
-  <!-- ── Hero Carousel ──────────────────────────────────────── -->
-  <div class="hero-carousel" id="hero-section">
+  <!-- Hero Carousel -->
+  <div class="hero-carousel">
     <div class="hero-slide active">
-      <div style="background:linear-gradient(to right,var(--slate-900),var(--slate-700));">
+      <div style="background: linear-gradient(to right, var(--slate-900), var(--slate-700));">
         <div class="container">
           <div class="hero-split">
             <div class="hero-content">
@@ -114,75 +113,45 @@
               <a href="index.html?cat=Electronics" class="hero-cta">Shop Electronics →</a>
             </div>
             <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=1200&h=800&fit=crop" alt="Tech products">
+              <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=1200&h=800&fit=crop" alt="Tech products" />
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="hero-slide">
-      <div style="background:linear-gradient(to right,#1a1a2e,#16213e);">
-        <div class="container">
-          <div class="hero-split">
-            <div class="hero-content">
-              <h1 class="hero-title">Home Redefined</h1>
-              <p class="hero-subtitle">Elegant furniture and decor that transform your space into a sanctuary</p>
-              <a href="index.html?cat=Home%20%26%20Living" class="hero-cta">Shop Home →</a>
-            </div>
-            <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=1200&h=800&fit=crop" alt="Home products">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-slide">
-      <div style="background:linear-gradient(to right,#0a0a0a,#1a1a1a);">
-        <div class="container">
-          <div class="hero-split">
-            <div class="hero-content">
-              <h1 class="hero-title">Premium Essentials</h1>
-              <p class="hero-subtitle">Curated picks from top brands — only the best make the cut</p>
-              <a href="#new-arrivals" class="hero-cta">Shop New Arrivals →</a>
-            </div>
-            <div class="hero-image">
-              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&h=800&fit=crop" alt="Premium products">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <button class="carousel-control prev" onclick="changeSlide(-1)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
     </button>
     <button class="carousel-control next" onclick="changeSlide(1)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
     </button>
+
     <div class="carousel-dots">
-      <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-      <button class="carousel-dot" onclick="goToSlide(1)"></button>
-      <button class="carousel-dot" onclick="goToSlide(2)"></button>
+      <button class="carousel-dot active"></button>
+      <button class="carousel-dot"></button>
+      <button class="carousel-dot"></button>
     </div>
   </div>
 
-  <!-- ── Promo Tiles ────────────────────────────────────────── -->
-  <div class="promo-tiles" id="promo-section">
+  <!-- Promo Tiles -->
+  <div class="promo-tiles">
     <div class="container">
       <div class="promo-scroll">
-        <div class="promo-tile"><div class="promo-icon" style="background:linear-gradient(to bottom right,var(--amber-400),var(--orange-500));">⚡</div><div class="promo-label">Flash Deals</div></div>
-        <div class="promo-tile"><div class="promo-icon" style="background:linear-gradient(to bottom right,#f9a8d4,#ec4899);">🎁</div><div class="promo-label">Gift Cards</div></div>
-        <div class="promo-tile"><div class="promo-icon" style="background:linear-gradient(to bottom right,#60a5fa,#06b6d4);">📦</div><div class="promo-label">Today's Deals</div></div>
-        <div class="promo-tile"><div class="promo-icon" style="background:linear-gradient(to bottom right,#a78bfa,#6366f1);">🏆</div><div class="promo-label">Best Sellers</div></div>
-        <div class="promo-tile"><div class="promo-icon" style="background:linear-gradient(to bottom right,var(--green-400),var(--emerald-500));">🆕</div><div class="promo-label">New Arrivals</div></div>
-        <div class="promo-tile"><div class="promo-icon" style="background:linear-gradient(to bottom right,#c084fc,#a855f7);">💎</div><div class="promo-label">Premium</div></div>
-        <div class="promo-tile"><div class="promo-icon" style="background:linear-gradient(to bottom right,#f87171,#ec4899);">🔥</div><div class="promo-label">Trending</div></div>
-        <div class="promo-tile"><div class="promo-icon" style="background:linear-gradient(to bottom right,#2dd4bf,#06b6d4);">✨</div><div class="promo-label">Clearance</div></div>
+        <div class="promo-tile"><div class="promo-icon" style="background: linear-gradient(to bottom right, var(--amber-400), var(--orange-500));">⚡</div><div class="promo-label">Flash Deals</div></div>
+        <div class="promo-tile"><div class="promo-icon" style="background: linear-gradient(to bottom right, #f9a8d4, #ec4899);">🎁</div><div class="promo-label">Gift Cards</div></div>
+        <div class="promo-tile"><div class="promo-icon" style="background: linear-gradient(to bottom right, #60a5fa, #06b6d4);">📦</div><div class="promo-label">Today's Deals</div></div>
+        <div class="promo-tile"><div class="promo-icon" style="background: linear-gradient(to bottom right, #a78bfa, #6366f1);">🏆</div><div class="promo-label">Best Sellers</div></div>
+        <div class="promo-tile"><div class="promo-icon" style="background: linear-gradient(to bottom right, var(--green-400), var(--emerald-500));">🆕</div><div class="promo-label">New Arrivals</div></div>
+        <div class="promo-tile"><div class="promo-icon" style="background: linear-gradient(to bottom right, #c084fc, #a855f7);">💎</div><div class="promo-label">Premium</div></div>
+        <div class="promo-tile"><div class="promo-icon" style="background: linear-gradient(to bottom right, #f87171, #ec4899);">🔥</div><div class="promo-label">Trending</div></div>
+        <div class="promo-tile"><div class="promo-icon" style="background: linear-gradient(to bottom right, #2dd4bf, #06b6d4);">✨</div><div class="promo-label">Clearance</div></div>
       </div>
     </div>
   </div>
 
-  <!-- ── Trending Now (carousel) ────────────────────────────── -->
-  <div class="product-carousel" id="trending-section">
+  <!-- Product Carousel - Trending Now -->
+  <div class="product-carousel">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Trending Now</h2>
@@ -192,53 +161,57 @@
     </div>
   </div>
 
-  <!-- ── Sponsored Highlight ────────────────────────────────── -->
-  <div class="sponsored-highlight" id="sponsored-section">
+  <!-- Sponsored Highlight -->
+  <div class="sponsored-highlight">
     <div class="container">
-      <a href="product.html?id=1" style="text-decoration:none;color:inherit;">
-        <div class="sponsored-card">
-          <div class="sponsored-label">
-            <span class="sponsored-text">Sponsored</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--slate-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="sponsored-card" title="Open product detail">
+        <div class="sponsored-label">
+          <span class="sponsored-text">Sponsored</span>
+          <svg width="16" height="16" fill="none" stroke="var(--slate-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <div class="sponsored-content">
+          <div class="sponsored-image">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop" alt="Wireless Headphones" />
+            <div class="product-discount">-22%</div>
           </div>
-          <div class="sponsored-content">
-            <div class="sponsored-image">
-              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop" alt="Wireless Headphones">
-              <div class="product-discount">-22%</div>
-            </div>
-            <div class="sponsored-details">
-              <div>
-                <div class="sponsored-brand">MODERNIST</div>
-                <h3 class="sponsored-title">Wireless Noise-Canceling Headphones</h3>
-                <div class="sponsored-rating">
-                  <div class="stars" id="sponsored-stars"></div>
-                  <span>(2,847 reviews)</span>
+          <div class="sponsored-details">
+            <div>
+              <div class="sponsored-brand">MODERNIST</div>
+              <h3 class="sponsored-title">Wireless Noise-Canceling Headphones</h3>
+              <div class="sponsored-rating">
+                <div class="stars">
+                  <svg class="star star-filled" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg class="star star-filled" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg class="star star-filled" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg class="star star-filled" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg class="star star-filled" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                 </div>
+                <span>(2,847 reviews)</span>
               </div>
-              <div>
-                <div class="sponsored-price">
-                  <span class="sponsored-current-price">$349.99</span>
-                  <span class="sponsored-original-price">$449.99</span>
-                </div>
-                <div class="shipping-info">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                  Free shipping
-                </div>
-                <div class="delivery-info">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  Delivered in 2-3 days
-                </div>
-              </div>
-              <button class="add-to-cart-btn" onclick="event.preventDefault();alert('Added to cart!')">Add to Cart</button>
             </div>
+            <div>
+              <div class="sponsored-price">
+                <span class="sponsored-current-price">$349.99</span>
+                <span class="sponsored-original-price">$449.99</span>
+              </div>
+              <div class="shipping-info">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                Free shipping
+              </div>
+              <div class="delivery-info">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Delivered in 2-3 days
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="event.stopPropagation(); alert('Added to cart (mock).')">Add to Cart</button>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 
-  <!-- ── New Arrivals (grid) ────────────────────────────────── -->
-  <div class="product-grid" id="new-arrivals">
+  <!-- Product Grid - New Arrivals -->
+  <div class="product-grid">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">New Arrivals</h2>
@@ -248,7 +221,7 @@
     </div>
   </div>
 
-  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <!-- Footer (unchanged) -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -256,27 +229,31 @@
           <div class="footer-brand">
             <div class="footer-logo">E</div>
             <div>
-              <div style="font-weight:bold;font-size:1.25rem;">ELITE</div>
-              <div style="font-size:.75rem;color:var(--slate-400);letter-spacing:.15em;">MARKETPLACE</div>
+              <div style="font-weight: bold; font-size: 1.25rem;">ELITE</div>
+              <div style="font-size: 0.75rem; color: var(--slate-400); letter-spacing: 0.15em;">MARKETPLACE</div>
             </div>
           </div>
-          <p class="footer-description">Your destination for premium products, exceptional service, and unbeatable value.</p>
+          <p class="footer-description">
+            Your destination for premium products, exceptional service, and unbeatable value.
+          </p>
           <div class="footer-social">
             <a href="#" class="social-link">𝕏</a>
             <a href="#" class="social-link">f</a>
             <a href="#" class="social-link">in</a>
           </div>
         </div>
+
         <div>
           <h4 class="footer-heading">Shop</h4>
           <ul class="footer-links">
-            <li><a href="index.html?cat=Electronics">Electronics</a></li>
-            <li><a href="index.html?cat=Fashion">Fashion</a></li>
-            <li><a href="index.html?cat=Home%20%26%20Living">Home &amp; Living</a></li>
-            <li><a href="index.html?cat=Beauty">Beauty</a></li>
-            <li><a href="index.html?cat=Sports">Sports</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Fashion</a></li>
+            <li><a href="#">Home & Living</a></li>
+            <li><a href="#">Beauty</a></li>
+            <li><a href="#">Sports</a></li>
           </ul>
         </div>
+
         <div>
           <h4 class="footer-heading">Customer Service</h4>
           <ul class="footer-links">
@@ -287,6 +264,7 @@
             <li><a href="#">Contact Us</a></li>
           </ul>
         </div>
+
         <div>
           <h4 class="footer-heading">Company</h4>
           <ul class="footer-links">
@@ -298,6 +276,7 @@
           </ul>
         </div>
       </div>
+
       <div class="footer-bottom">
         <p class="footer-copyright">© 2026 ELITE Marketplace. All rights reserved.</p>
         <div class="footer-legal">
@@ -309,87 +288,8 @@
     </div>
   </footer>
 
-  <!-- ── Scripts ────────────────────────────────────────────── -->
+  <!-- Scripts -->
   <script src="data.js"></script>
   <script src="app.js"></script>
-  <script>
-    /* ── Homepage initialisation ─────────────────────────── */
-    (function () {
-      const params = getQueryParams();
-
-      // Determine if we're in a filtered state
-      let filtered = null;
-      let filterLabel = '';
-
-      if (params.cat) {
-        filterLabel = `Category: ${params.cat}`;
-        filtered = products.filter(p => p.category === params.cat);
-      } else if (params.search) {
-        const q = params.search.toLowerCase();
-        filterLabel = `Search results for "${params.search}"`;
-        filtered = products.filter(p =>
-          p.name.toLowerCase().includes(q) ||
-          p.brand.toLowerCase().includes(q) ||
-          (p.category && p.category.toLowerCase().includes(q))
-        );
-      }
-
-      if (filtered !== null) {
-        // Show filter banner, hide hero + promos, show filtered grid only
-        document.getElementById('filter-banner').style.display = '';
-        document.getElementById('filter-title').textContent = filterLabel;
-        document.getElementById('hero-section').style.display = 'none';
-        document.getElementById('promo-section').style.display = 'none';
-        document.getElementById('trending-section').style.display = 'none';
-        document.getElementById('sponsored-section').style.display = 'none';
-
-        // Highlight active category button
-        if (params.cat) {
-          document.querySelectorAll('.category-item').forEach(b => {
-            if (b.textContent.trim() === params.cat) b.classList.add('active');
-          });
-        }
-
-        // Populate search input with query
-        if (params.search) {
-          const inp = document.querySelector('.search-input');
-          if (inp) inp.value = params.search;
-        }
-
-        // Render grid
-        const grid = document.getElementById('new-arrivals-grid');
-        document.querySelector('#new-arrivals .section-title').textContent =
-          filtered.length ? filterLabel : 'No products found';
-        document.querySelector('#new-arrivals .view-all').style.display = 'none';
-        grid.innerHTML = filtered.length
-          ? filtered.map(p => createProductCard(p, true)).join('')
-          : '<p style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--slate-500);">Try a different search or category.</p>';
-      } else {
-        // Normal homepage — render all sections
-        document.getElementById('trending-scroll').innerHTML = products.map(p => createProductCard(p)).join('');
-        document.getElementById('new-arrivals-grid').innerHTML = products.map(p => createProductCard(p, true)).join('');
-      }
-
-      // Sponsored stars
-      const ss = document.getElementById('sponsored-stars');
-      if (ss) ss.innerHTML = renderStars(4.8);
-
-      initShared();
-
-      // Auto-advance carousel every 6 s
-      setInterval(() => changeSlide(1), 6000);
-    })();
-
-    /** Jump to specific slide (for dot buttons) */
-    function goToSlide(idx) {
-      const slides = document.querySelectorAll('.hero-slide');
-      const dots   = document.querySelectorAll('.carousel-dot');
-      slides[currentSlide]?.classList.remove('active');
-      dots[currentSlide]?.classList.remove('active');
-      currentSlide = idx;
-      slides[currentSlide]?.classList.add('active');
-      dots[currentSlide]?.classList.add('active');
-    }
-  </script>
 </body>
 </html>
