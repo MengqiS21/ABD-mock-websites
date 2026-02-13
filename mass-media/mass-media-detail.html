@@ -35,15 +35,15 @@
         <div class="article-header">
             <span class="category" id="art-cat">News</span>
             <h1 id="art-title">Loading Article...</h1>
-            <div class="byline">By <span id="art-author">The Pulse Editorial Team</span> • Updated 2 hours ago</div>
+            <div class="byline">By <span id="art-author">The Pulse Editorial Team</span> • Published 2 hours ago</div>
         </div>
 
         <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200" class="hero-img" id="art-img">
 
         <div class="content">
-            <p><strong>WASHINGTON D.C.</strong> — In a move that observers are calling a major shift in policy, officials confirmed today that the proposed framework has received broad support from multiple stakeholders across the globe.</p>
+            <p><strong>WASHINGTON D.C.</strong> — In a move that observers are calling a major shift in global dynamics, officials confirmed today that the proposed framework has received broad support from multiple stakeholders.</p>
             <p>The development follows weeks of intense negotiations and reflects a growing consensus on the need for systemic change. "This is not just about the short-term," said one lead analyst. "This is about redefining how we approach these challenges for the next generation."</p>
-            <p>As the situation continues to evolve, our teams are on the ground providing real-time updates and expert analysis on what this means for you and the global economy.</p>
+            <p>As the situation continues to evolve, our teams are on the ground providing real-time updates and expert analysis on what this means for readers worldwide. We will continue to update this story as more information becomes available.</p>
         </div>
     </article>
 
@@ -54,7 +54,7 @@
             'hero': { category: 'Breaking', title: 'Historic Climate Agreement Reached at Global Summit', author: 'Sarah Johnson', img: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200' },
             '1': { category: 'Politics', title: 'Senate Debates Major Infrastructure Bill', author: 'Michael Chen', img: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200' },
             '2': { category: 'Business', title: 'Tech Giants Report Record Earnings', author: 'Emma Rodriguez', img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200' },
-            '4': { category: 'Tech', title: 'AI Breakthrough in Reasoning', author: 'Alex Kim', img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200' }
+            '14': { category: 'Tech', title: 'AI Breakthrough Changes Everything', author: 'Alex Kim', img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200' }
         };
 
         const id = new URLSearchParams(window.location.search).get('id');
@@ -63,7 +63,7 @@
         document.getElementById('art-cat').innerText = article.category;
         document.getElementById('art-title').innerText = article.title;
         document.getElementById('art-author').innerText = article.author;
-        document.getElementById('art-img').src = article.img;
+        if(article.img) document.getElementById('art-img').src = article.img;
         document.title = `${article.title} - The Pulse`;
     </script>
 </body>
