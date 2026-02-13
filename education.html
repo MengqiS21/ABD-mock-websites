@@ -3,120 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnHub - Transform Your Future</title>
+    <title>LearnHub - Transform Your Future Through Learning</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-blue: #0056d2; --primary-purple: #7c3aed; --bg-primary: #ffffff;
-            --bg-secondary: #f9fafb; --text-primary: #111827; --text-secondary: #6b7280;
-            --border-light: #e5e7eb;
+            --primary-blue: #0056d2; --primary-purple: #7c3aed; --accent-green: #10b981;
+            --accent-orange: #f59e0b; --bg-primary: #ffffff; --bg-secondary: #f9fafb;
+            --text-primary: #111827; --text-secondary: #6b7280; --border-light: #e5e7eb;
+            --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        body { font-family: -apple-system, sans-serif; color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Announcement Bar */
+        .announcement-bar { background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue)); color: white; padding: 12px 20px; text-align: center; font-size: 14px; }
+        
+        /* Header */
+        .global-header { background: white; border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 1000; }
+        .header-content { display: flex; align-items: center; height: 72px; gap: 32px; justify-content: space-between; }
+        .logo { font-size: 28px; font-weight: 900; background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        
+        /* Search */
+        .search-container { flex: 1; max-width: 600px; }
+        .search-wrapper { position: relative; }
+        .search-input { width: 100%; height: 48px; padding: 0 20px; border: 2px solid var(--border-light); border-radius: 24px; outline: none; }
+        .search-input:focus { border-color: var(--primary-blue); }
+        .search-button { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border: none; background: var(--primary-blue); border-radius: 50%; color: white; cursor: pointer; }
 
-        body { font-family: -apple-system, sans-serif; background-color: var(--bg-primary); margin: 0; color: var(--text-primary); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* Course Cards */
+        .featured-courses { padding: 80px 0; }
+        .course-carousel { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 20px; }
+        
+        .course-card { flex: 0 0 320px; background: white; border: 2px solid var(--border-light); border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; transition: all var(--transition); }
+        .course-card:hover { transform: translateY(-8px); border-color: var(--primary-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        .course-image { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; }
+        .course-content { padding: 24px; }
+        .course-category { display: inline-block; padding: 4px 12px; background: var(--bg-secondary); border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--primary-blue); text-transform: uppercase; margin-bottom: 12px; }
+        .course-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+        .course-rating { color: var(--accent-orange); font-weight: 600; margin-bottom: 16px; font-size: 14px; }
+        .course-stats { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border-light); }
+        .stat-value { font-size: 18px; font-weight: 700; color: var(--primary-blue); }
+        .stat-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; }
 
-        /* Navbar */
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border-light); }
-        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, var(--primary-blue), var(--primary-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--text-secondary); font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary-blue); }
-
-        /* Search & Filter Section */
-        .filter-section { padding: 40px 0; text-align: center; background: var(--bg-secondary); }
-        .search-box { max-width: 600px; margin: 0 auto 30px; display: flex; gap: 10px; }
-        .search-box input { flex: 1; padding: 12px 20px; border-radius: 12px; border: 1px solid var(--border-light); outline: none; }
-        .search-box button { padding: 12px 25px; background: var(--primary-blue); color: white; border: none; border-radius: 12px; cursor: pointer; }
-
-        .category-tabs { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .tab { padding: 10px 20px; border-radius: 100px; border: 1px solid var(--border-light); cursor: pointer; transition: 0.3s; background: white; }
-        .tab.active { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
-
-        /* Course Grid */
-        .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 40px 0; }
-        .course-card { background: white; border-radius: 20px; border: 1px solid var(--border-light); overflow: hidden; transition: 0.3s; text-decoration: none; color: inherit; }
-        .course-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .course-image { height: 160px; background: #eef2ff; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary-blue); }
-        .course-content { padding: 20px; }
-        .course-category { font-size: 0.75rem; font-weight: 700; color: var(--primary-purple); text-transform: uppercase; }
-        .course-title { margin: 10px 0; font-size: 1.1rem; }
-        .course-meta { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); }
+        .btn-primary { padding: 12px 24px; background: var(--primary-blue); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; }
+        .btn-secondary { padding: 12px 24px; background: transparent; border: 2px solid var(--border-light); border-radius: 8px; font-weight: 700; cursor: pointer; }
     </style>
 </head>
 <body>
-    <nav class="container navbar">
-        <div class="logo">LearnHub</div>
-        <div class="nav-links">
-            <a href="#">Explore</a>
-            <a href="#">My Learning</a>
-            <a href="#" onclick="alert('Profile section coming soon!')">Profile</a>
+    <div class="announcement-bar" id="announcement">
+        <div class="container" style="position: relative;">
+            🎉 New Year Sale: Get 50% off Premium membership - Limited time offer!
+            <button style="position: absolute; right: 0; top: 0; background: none; border: none; color: white; cursor: pointer; font-size: 20px;" onclick="document.getElementById('announcement').style.display='none'">×</button>
         </div>
-    </nav>
+    </div>
 
-    <section class="filter-section">
+    <header class="global-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">LearnHub</a>
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="search" id="courseSearch" class="search-input" placeholder="What do you want to learn?">
+                    <button class="search-button" onclick="handleSearch()">GO</button>
+                </div>
+            </div>
+            <nav style="display: flex; gap: 15px;">
+                <button class="btn-secondary" onclick="alert('Login modal coming soon!')">Log In</button>
+                <button class="btn-primary" onclick="alert('Registration open!')">Join Free</button>
+            </nav>
+        </div>
+    </header>
+
+    <section style="background: #f0f9ff; padding: 80px 0;">
         <div class="container">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="What do you want to learn today?">
-                <button onclick="handleSearch()">Search</button>
-            </div>
-            <div class="category-tabs" id="categoryTabs">
-                <div class="tab active" onclick="filterCourses('All')">All</div>
-                <div class="tab" onclick="filterCourses('Business')">Business</div>
-                <div class="tab" onclick="filterCourses('Design')">Design</div>
-                <div class="tab" onclick="filterCourses('Development')">Development</div>
-                <div class="tab" onclick="filterCourses('Finance')">Finance</div>
-            </div>
+            <h1 style="font-size: 48px; margin-bottom: 20px;">Learn skills from the world's best</h1>
+            <p style="font-size: 20px; color: var(--text-secondary); max-width: 600px; margin-bottom: 30px;">Build job-ready skills with expert-led courses and professional certificates.</p>
+            <button class="btn-primary" style="padding: 16px 32px; font-size: 18px;">Get Started Free</button>
         </div>
     </section>
 
-    <main class="container">
-        <div class="course-grid" id="courseGrid">
-            </div>
-    </main>
+    <section class="featured-courses">
+        <div class="container">
+            <h2 style="font-size: 32px; margin-bottom: 40px;">Trending Courses</h2>
+            <div class="course-carousel" id="course-carousel">
+                </div>
+        </div>
+    </section>
 
     <script>
         const courses = [
-            { id: 1, category: 'Business', title: 'Marketing Masterclass 2024', rating: 4.8, students: '12,453', lessons: 24, hours: 12 },
-            { id: 2, category: 'Design', title: 'UX/UI Design Principles', rating: 4.9, students: '8,210', lessons: 48, hours: 32 },
-            { id: 3, category: 'Development', title: 'Python for Beginners', rating: 4.7, students: '25,000', lessons: 120, hours: 60 },
-            { id: 4, category: 'Finance', title: 'Crypto & Digital Assets', rating: 4.6, students: '5,120', lessons: 15, hours: 8 },
-            { id: 5, category: 'Development', title: 'Advanced React Patterns', rating: 4.9, students: '3,200', lessons: 35, hours: 20 },
-            { id: 6, category: 'Business', title: 'Entrepreneurship 101', rating: 4.5, students: '10,100', lessons: 20, hours: 10 }
+            { id: 1, category: 'AI & ML', title: 'Machine Learning Fundamentals', rating: 4.8, students: '125K', lessons: 42, hours: 15 },
+            { id: 2, category: 'Web Dev', title: 'Full-Stack Web Development', rating: 4.9, students: '230K', lessons: 68, hours: 30 },
+            { id: 3, category: 'Data', title: 'Data Science with Python', rating: 4.7, students: '180K', lessons: 54, hours: 22 },
+            { id: 4, category: 'Design', title: 'UI/UX Design Masterclass', rating: 4.9, students: '95K', lessons: 38, hours: 18 },
+            { id: 5, category: 'Business', title: 'Digital Marketing Strategy', rating: 4.6, students: '150K', lessons: 46, hours: 20 },
+            { id: 6, category: 'Finance', title: 'Financial Analysis & Valuation', rating: 4.8, students: '85K', lessons: 32, hours: 16 }
         ];
 
-        function renderCourses(data) {
-            const grid = document.getElementById('courseGrid');
-            grid.innerHTML = data.map(course => `
-                <a href="education-detail.html?id=${course.id}" class="course-card">
-                    <div class="course-image">${course.category} Course</div>
+        // 2. 渲染函数：将卡片包装在 <a> 标签中以实现跳转
+        const carousel = document.getElementById('course-carousel');
+        
+        function displayCourses(data) {
+            carousel.innerHTML = '';
+            data.forEach(course => {
+                const card = document.createElement('a');
+                card.className = 'course-card';
+                card.href = `education-detail.html?id=${course.id}`; 
+                
+                card.innerHTML = `
+                    <div class="course-image">${course.category}</div>
                     <div class="course-content">
                         <span class="course-category">${course.category}</span>
                         <h3 class="course-title">${course.title}</h3>
                         <div class="course-meta">
-                            <span>⭐ ${course.rating}</span>
-                            <span>${course.students} students</span>
+                            <div class="course-rating">⭐ ${course.rating}</div>
+                            <span style="font-size: 13px; color: #999;">${course.students} students</span>
+                        </div>
+                        <div class="course-stats">
+                            <div class="course-stat">
+                                <div class="stat-value">${course.lessons}</div>
+                                <div class="stat-label">Lessons</div>
+                            </div>
+                            <div class="course-stat">
+                                <div class="stat-value">${course.hours}h</div>
+                                <div class="stat-label">Duration</div>
+                            </div>
                         </div>
                     </div>
-                </a>
-            `).join('');
-        }
-
-        function filterCourses(cat) {
-            // 更新 Tab 样式
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // 过滤逻辑
-            const filtered = cat === 'All' ? courses : courses.filter(c => c.category === cat);
-            renderCourses(filtered);
+                `;
+                carousel.appendChild(card);
+            });
         }
 
         function handleSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = courses.filter(c => c.title.toLowerCase().includes(query));
-            renderCourses(filtered);
+            const term = document.getElementById('courseSearch').value.toLowerCase();
+            const filtered = courses.filter(c => c.title.toLowerCase().includes(term));
+            displayCourses(filtered);
         }
 
-        // 初始渲染
-        renderCourses(courses);
+        document.getElementById('courseSearch').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSearch();
+        });
+
+        // 初始加载
+        displayCourses(courses);
     </script>
 </body>
 </html>
