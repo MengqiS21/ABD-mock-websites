@@ -5,184 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product — ELITE Marketplace</title>
     <style>
-        /* 继承 index 的全局变量 */
         :root {
-            --slate-50: #f8fafc;
-            --slate-100: #f1f5f9;
-            --slate-200: #e2e8f0;
-            --slate-300: #cbd5e1;
-            --slate-500: #64748b;
-            --slate-600: #475569;
-            --slate-700: #334155;
-            --slate-800: #1e293b;
-            --slate-900: #0f172a;
-            --amber-400: #fbbf24;
-            --amber-500: #f59e0b;
-            --orange-500: #f97316;
-            --red-500: #ef4444;
-            --emerald-500: #10b981;
-            --emerald-600: #059669;
+            --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0; --slate-500: #64748b;
+            --slate-700: #334155; --slate-900: #0f172a; --amber-400: #fbbf24; --amber-500: #f59e0b;
+            --orange-500: #f97316; --emerald-600: #059669;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: var(--slate-900);
-            line-height: 1.5;
-            background-color: white;
-        }
-
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-
-        /* 复用 Header 样式 (简略显示) */
-        .main-header { border-bottom: 1px solid var(--slate-200); padding: 1rem 0; margin-bottom: 1rem; }
-        .logo { font-weight: bold; font-size: 1.5rem; text-decoration: none; color: var(--slate-900); display: flex; align-items: center; gap: 0.5rem; }
-        .logo-icon { background: var(--slate-900); color: white; padding: 0.2rem 0.6rem; border-radius: 8px; }
-
-        /* 面包屑 */
-        .breadcrumbs { padding: 1rem 0; font-size: 0.85rem; color: var(--slate-500); }
-        .breadcrumbs a { color: var(--slate-500); text-decoration: none; }
-        .breadcrumbs span { margin: 0 0.5rem; }
-
-        /* 核心布局：模仿截图结构 */
-        .pdp-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr 0.6fr; /* 左：图，中：信息，右：购买卡片 */
-            gap: 2rem;
-            align-items: start;
-        }
-
-        /* 左侧图片区 */
-        .pdp-gallery { position: sticky; top: 100px; }
-        .main-image-container {
-            background: var(--slate-50);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--slate-100);
-            aspect-ratio: 1;
-        }
-        .main-image-container img { width: 100%; height: 100%; object-fit: contain; }
-
-        /* 中间信息区 */
-        .pdp-main-info { display: flex; flex-direction: column; gap: 1rem; }
-        .pdp-brand { color: var(--emerald-600); font-weight: 600; font-size: 0.9rem; }
-        .pdp-title { font-size: 1.75rem; font-weight: 700; line-height: 1.2; }
-        .pdp-rating { display: flex; align-items: center; gap: 0.5rem; color: var(--amber-500); font-size: 0.9rem; }
-        .price-tag { font-size: 1.5rem; color: var(--slate-900); display: flex; align-items: baseline; gap: 0.5rem; }
-        .original-price { color: var(--slate-400); text-decoration: line-through; font-size: 1rem; }
-
-        .feature-list { list-style: none; padding-top: 1rem; border-top: 1px solid var(--slate-100); }
-        .feature-list li { margin-bottom: 0.5rem; font-size: 0.9rem; position: relative; padding-left: 1.25rem; }
-        .feature-list li::before { content: "•"; position: absolute; left: 0; color: var(--slate-400); }
-
-        /* 右侧购买区 (类似 Amazon 侧边栏) */
-        .purchase-card {
-            border: 1px solid var(--slate-200);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .stock-status { color: var(--emerald-600); font-weight: 600; font-size: 1.1rem; }
-        .delivery-note { font-size: 0.85rem; color: var(--slate-600); }
-        .qty-select { padding: 0.5rem; border-radius: 8px; border: 1px solid var(--slate-300); background: var(--slate-50); }
-
-        .btn-add-cart { 
-            background: var(--amber-400); 
-            border: none; padding: 0.8rem; border-radius: 20px; font-weight: 600; cursor: pointer; 
-            transition: background 0.2s;
-        }
-        .btn-add-cart:hover { background: var(--amber-500); }
+        body { font-family: sans-serif; color: var(--slate-900); margin: 0; line-height: 1.5; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
         
-        .btn-buy-now { 
-            background: var(--orange-500); color: white;
-            border: none; padding: 0.8rem; border-radius: 20px; font-weight: 600; cursor: pointer;
-        }
+        /* Header 简易版 */
+        .main-header { border-bottom: 1px solid var(--slate-200); padding: 1rem 0; }
+        .logo { font-weight: bold; text-decoration: none; color: var(--slate-900); display: flex; align-items: center; gap: 0.5rem; }
+        .logo-icon { background: var(--slate-900); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; }
 
-        @media (max-width: 1024px) {
-            .pdp-grid { grid-template-columns: 1fr; }
-            .purchase-card { position: static; }
-        }
+        .breadcrumbs { padding: 1rem 0; font-size: 0.8rem; color: var(--slate-500); }
+        .breadcrumbs a { color: inherit; text-decoration: none; }
+
+        /* 模仿 Amazon 布局 */
+        .pdp-grid { display: grid; grid-template-columns: 1fr 1fr 0.6fr; gap: 2rem; margin-top: 1rem; }
+        .pdp-gallery img { width: 100%; border-radius: 8px; background: var(--slate-50); }
+        
+        .pdp-info h1 { font-size: 1.5rem; margin: 0.5rem 0; }
+        .pdp-brand { color: var(--emerald-600); font-size: 0.9rem; font-weight: bold; }
+        .price { font-size: 1.8rem; font-weight: bold; margin: 1rem 0; }
+        .feature-list { padding-left: 1.2rem; font-size: 0.9rem; color: var(--slate-700); }
+
+        .buy-box { border: 1px solid var(--slate-200); padding: 1rem; border-radius: 8px; }
+        .btn { width: 100%; padding: 0.8rem; border: none; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 0.5rem; }
+        .btn-cart { background: var(--amber-400); }
+        .btn-buy { background: var(--orange-500); color: white; }
+
+        @media (max-width: 768px) { .pdp-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <a href="index-6.html" class="logo">
-                <span class="logo-icon">E</span> ELITE MARKETPLACE
-            </a>
-        </div>
-    </header>
-
-    <main class="container">
-        <div id="pdp-content">
-            </div>
-    </main>
+    <header class="main-header"><div class="container"><a href="index-4.html" class="logo"><span class="logo-icon">E</span> ELITE MARKETPLACE</a></div></header>
+    <main class="container" id="pdp-content"></main>
 
     <script>
-        // 这里的 products 数组应与 index-6.html 保持一致
+        // 必须包含首页所有的 ID (1-6)
         const products = [
-            { id: 1, brand: 'MODERNIST', name: 'Wireless Noise-Canceling Headphones', price: 349.99, originalPrice: 449.99, rating: 4.8, reviews: 2847, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=800&fit=crop', category: 'Electronics', description: 'Experience immersive sound with industry-leading noise cancellation. Premium wireless headphones with crystal-clear audio, deep bass, and comfortable over-ear design.' },
-            { id: 2, brand: 'LUMA', name: 'Smart Watch Series 7', price: 399.99, rating: 4.9, reviews: 3621, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=800&fit=crop', category: 'Electronics' },
-            // ... 其他产品
+            { id: 1, brand: 'MODERNIST', name: 'Wireless Noise-Canceling Headphones', price: 349.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800' },
+            { id: 2, brand: 'LUMA', name: 'Smart Watch Series 7', price: 399.99, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800' },
+            { id: 3, brand: 'STUDIO', name: 'Ergonomic Office Chair', price: 589.99, image: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=800' },
+            { id: 4, brand: 'TECHFLOW', name: '4K Ultra HD Monitor 32"', price: 549.99, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800' },
+            { id: 5, brand: 'ELEVATE', name: 'Mechanical Gaming Keyboard', price: 159.99, image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800' },
+            { id: 6, brand: 'ZENITH', name: 'Wireless Mouse Pro', price: 79.99, image: 'https://images.unsplash.com/photo-1527814050087-3793815479db?w=800' }
         ];
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = parseInt(urlParams.get('id'));
-        const product = products.find(p => p.id === productId) || products[0];
+        const id = new URLSearchParams(window.location.search).get('id');
+        const p = products.find(item => item.id == id) || products[0];
 
-        const content = document.getElementById('pdp-content');
-        content.innerHTML = `
-            <div class="breadcrumbs">
-                <a href="index-6.html">Home</a> <span>›</span> <a href="#">${product.category}</a> <span>›</span> ${product.brand}
-            </div>
-            
+        document.getElementById('pdp-content').innerHTML = `
+            <div class="breadcrumbs"><a href="index-4.html">Home</a> › ${p.name}</div>
             <div class="pdp-grid">
-                <div class="pdp-gallery">
-                    <div class="main-image-container">
-                        <img src="${product.image}" alt="${product.name}">
-                    </div>
-                </div>
-
-                <div class="pdp-main-info">
-                    <div class="pdp-brand">Visit the ${product.brand} Store</div>
-                    <h1 class="pdp-title">${product.name}</h1>
-                    <div class="pdp-rating">
-                        ★ ★ ★ ★ ☆ <span>${product.rating} (${product.reviews.toLocaleString()} ratings)</span>
-                    </div>
-                    <hr style="border:0; border-top:1px solid var(--slate-100)">
-                    <div class="price-tag">
-                        <span style="font-size: 0.8rem; vertical-align: super;">$</span>${product.price}
-                        ${product.originalPrice ? `<span class="original-price">$${product.originalPrice}</span>` : ''}
-                    </div>
-                    <div class="pdp-description">
-                        <p>${product.description || 'Premium quality product designed for elite performance.'}</p>
-                    </div>
+                <div class="pdp-gallery"><img src="${p.image}"></div>
+                <div class="pdp-info">
+                    <div class="pdp-brand">Brand: ${p.brand}</div>
+                    <h1>${p.name}</h1>
+                    <div class="price">$${p.price}</div>
                     <ul class="feature-list">
-                        <li>High-fidelity audio performance</li>
-                        <li>Advanced ergonomic design for all-day comfort</li>
-                        <li>Seamless integration with ELITE ecosystem</li>
-                        <li>1-year manufacturer warranty included</li>
+                        <li>Premium quality materials</li>
+                        <li>Elite performance guaranteed</li>
+                        <li>1-year official warranty</li>
                     </ul>
                 </div>
-
-                <div class="purchase-card">
-                    <div class="price-tag">$${product.price}</div>
-                    <div class="delivery-note">FREE delivery <b>Tuesday, February 17</b>. Order within <span style="color:#c45500">7 hrs 36 mins</span></div>
-                    <div class="stock-status">In Stock</div>
-                    
-                    <label style="font-size:0.85rem">Quantity:</label>
-                    <select class="qty-select">
-                        <option>1</option><option>2</option><option>3</option>
-                    </select>
-
-                    <button class="btn-add-cart" onclick="alert('Added to cart!')">Add to Cart</button>
-                    <button class="btn-buy-now" onclick="alert('Redirecting to checkout...')">Buy Now</button>
-                    
-                    <div style="font-size:0.8rem; color:var(--slate-600); margin-top:0.5rem">
-                        Ships from ELITE Marketplace<br>
-                        Sold by ${product.brand} Official
-                    </div>
+                <div class="buy-box">
+                    <div class="price">$${p.price}</div>
+                    <p style="color:green; font-size:0.9rem">✔ In Stock</p>
+                    <button class="btn btn-cart">Add to Cart</button>
+                    <button class="btn btn-buy">Buy Now</button>
                 </div>
             </div>
         `;

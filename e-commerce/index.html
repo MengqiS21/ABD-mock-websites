@@ -1298,32 +1298,33 @@
         ];
 
         // Product card — now an <a> tag linking to product.html
-        function createProductCard(product) {
-            const badgeClass =
-                product.badge === 'New' ? 'badge-new' :
-                product.badge === 'Best Seller' ? 'badge-bestseller' :
-                product.badge === 'Limited' ? 'badge-limited' :
-                'badge-verified';
+        /* --- 找到 index-4.html 结尾处的 createProductCard 函数 --- */
+    function createProductCard(product) {
+        const badgeClass =
+            product.badge === 'New' ? 'badge-new' :
+            product.badge === 'Best Seller' ? 'badge-bestseller' :
+            product.badge === 'Limited' ? 'badge-limited' :
+            'badge-verified';
 
-            const stars = Array(5).fill(0).map((_, i) =>
-                '<svg class="star ' + (i < Math.floor(product.rating) ? 'star-filled' : 'star-empty') + '" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'
-            ).join('');
+        const stars = Array(5).fill(0).map((_, i) =>
+            '<svg class="star ' + (i < Math.floor(product.rating) ? 'star-filled' : 'star-empty') + '" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'
+        ).join('');
 
-            return '<a href="product.html?id=' + product.id + '" class="product-card">' +
-                '<div class="product-image-container">' +
-                    '<img src="' + product.image + '" alt="' + product.name + '" class="product-image">' +
-                    (product.badge ? '<div class="product-badge ' + badgeClass + '">' + product.badge + '</div>' : '') +
-                    (product.discount ? '<div class="product-discount">-' + product.discount + '%</div>' : '') +
-                    (!product.discount ? '<button class="wishlist-btn" onclick="event.preventDefault();event.stopPropagation();toggleWishlist(this)"><svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>' : '') +
-                '</div>' +
-                '<div class="product-brand">' + product.brand + '</div>' +
-                '<h3 class="product-name">' + product.name + '</h3>' +
-                '<div class="product-rating"><div class="stars">' + stars + '</div><span class="review-count">(' + product.reviews.toLocaleString() + ')</span></div>' +
-                '<div class="product-price"><span class="current-price">$' + product.price + '</span>' +
-                    (product.originalPrice ? '<span class="original-price">$' + product.originalPrice + '</span>' : '') +
-                '</div>' +
-            '</a>';
-        }
+    // 关键修正：确保 href="product.html?id=..."
+        return '<a href="product.html?id=' + product.id + '" class="product-card">' +
+            '<div class="product-image-container">' +
+                '<img src="' + product.image + '" alt="' + product.name + '" class="product-image">' +
+                (product.badge ? '<div class="product-badge ' + badgeClass + '">' + product.badge + '</div>' : '') +
+                (product.discount ? '<div class="product-discount">-' + product.discount + '%</div>' : '') +
+            '</div>' +
+            '<div class="product-brand">' + product.brand + '</div>' +
+            '<h3 class="product-name">' + product.name + '</h3>' +
+            '<div class="product-rating"><div class="stars">' + stars + '</div><span class="review-count">(' + product.reviews.toLocaleString() + ')</span></div>' +
+            '<div class="product-price"><span class="current-price">$' + product.price + '</span>' +
+                (product.originalPrice ? '<span class="original-price">$' + product.originalPrice + '</span>' : '') +
+            '</div>' +
+        '</a>';
+    }
 
         // Render
         document.getElementById('trending-scroll').innerHTML = products.map(createProductCard).join('');
