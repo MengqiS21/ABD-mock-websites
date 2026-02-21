@@ -1,7 +1,7 @@
 # ABD-mock-websites
 # Prompt Record
 
----
+
 
 # 🛒 E-commerce Website Prompt
 
@@ -43,7 +43,7 @@ ecommerce-portal/
   - SponsoredCard
   - Footer
 
----
+
 
 ## 🎨 Design Reference
 
@@ -99,7 +99,7 @@ All pages must include:
 - Fully working internal links
 - Fully navigable via Tab key
 
----
+
 
 # 🏛 Government Website Prompt
 
@@ -138,7 +138,7 @@ gov-portal/
   - AnnouncementModule
   - Footer
 
----
+
 
 ## 🎨 Design Goals
 Modern public service portal inspired by national/city sites.
@@ -164,7 +164,7 @@ Modern public service portal inspired by national/city sites.
 - Screen reader friendly
 - Visible focus states
 
----
+
 
 # 📱 Social Media Website Prompt
 
@@ -224,7 +224,7 @@ Responsive:
 - WCAG AA compliance
 - ARIA labels
 
----
+
 
 # 📰 Mass Media Website Prompt
 
@@ -264,7 +264,7 @@ news-portal/
   - SubscriptionModule
   - Footer
 ```
----
+
 
 ## 🎨 Editorial Design
 Inspired by CNN + NYT + BuzzFeed + Vice + Verge.
@@ -290,7 +290,7 @@ Inspired by CNN + NYT + BuzzFeed + Vice + Verge.
 - Screen reader semantic structure
 - Visible focus states
 
----
+
 
 # 🎓 Education Platform Prompt
 
@@ -312,7 +312,7 @@ Inspired by:
 - Institutional trust
 - Action-driven CTAs
 
----
+
 
 ## Page Types
 1. Marketplace Homepage
@@ -320,7 +320,7 @@ Inspired by:
 3. Enterprise SaaS Landing
 4. Curriculum Content Page
 
----
+
 
 ## Global Components
 - GlobalHeader
@@ -339,7 +339,7 @@ Inspired by:
 - ProgressWidget
 - Footer
 
----
+
 
 ## Hero Modes
 - Course Discovery
@@ -347,7 +347,7 @@ Inspired by:
 - Product Plan Showcase
 - Enterprise SaaS Hero
 
----
+
 
 ## Curriculum Content Layout
 Left Sidebar:
@@ -376,7 +376,7 @@ Main Content:
 - Semantic HTML
 - Large clickable areas
 
----
+
 
 # ✅ Implementation Status Check
 
@@ -388,4 +388,3 @@ Main Content:
 | Mass Media    | ✅  | ✅    |             |
 | Education     | ✅  |       |             |
 
----
