@@ -8,6 +8,7 @@
 Please create a new subfolder called **ecommerce (claude code)** inside the current working directory. Inside this subfolder, build a multi-level mockup website with deeper page hierarchy and consistent styling throughout.
 
 ## 📁 Folder Structure to Create
+```bash
 ecommerce-portal/
 ├── index.html (homepage)
 ├── about/
@@ -28,6 +29,7 @@ ecommerce-portal/
 ├── components/ (shared HTML snippets or JS partials)
 └── styles/
 └── main.css (shared across all pages)
+```
 
 ## 💻 Technology
 - React + Tailwind CSS  
@@ -104,6 +106,7 @@ All pages must include:
 Create a new subfolder called **government (Claude code)**.
 
 ## 📁 Folder Structure
+```bash
 gov-portal/
 ├── index.html
 ├── about/
@@ -121,6 +124,7 @@ gov-portal/
 ├── components/
 └── styles/
 └── main.css
+```
 
 ## 💻 Technology
 - React + Tailwind CSS
@@ -167,6 +171,7 @@ Modern public service portal inspired by national/city sites.
 Create a subfolder called **social-media (claude code)**.
 
 ## 📁 Folder Structure
+```bash
 social-feed/
 ├── index.html
 ├── explore/
@@ -178,6 +183,7 @@ social-feed/
 ├── components/
 └── styles/
 └── main.css
+```
 
 
 ## 💻 Technology
@@ -225,6 +231,7 @@ Responsive:
 Create a subfolder called **mass-media (Claude code)**.
 
 ## 📁 Folder Structure
+```bash
 news-portal/
 ├── index.html
 ├── world/
@@ -256,7 +263,7 @@ news-portal/
   - FeatureBanner
   - SubscriptionModule
   - Footer
-
+```
 ---
 
 ## 🎨 Editorial Design
