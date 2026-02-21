@@ -1,13 +1,10 @@
-# ABD-mock-websites
-# Prompt Record
+# ABD Mock Websites Prompt Record
 
-
-
-# 🛒 E-commerce Website Prompt
+## 🛒 E-commerce Website Prompt
 
 Please create a new subfolder called **ecommerce (claude code)** inside the current working directory. Inside this subfolder, build a multi-level mockup website with deeper page hierarchy and consistent styling throughout.
 
-## 📁 Folder Structure to Create
+### 📁 Folder Structure to Create
 ```bash
 ecommerce-portal/
 ├── index.html (homepage)
@@ -31,7 +28,7 @@ ecommerce-portal/
 └── main.css (shared across all pages)
 ```
 
-## 💻 Technology
+### 💻 Technology
 - React + Tailwind CSS  
 - Each page should be a standalone HTML file that loads the shared stylesheet  
 - Reusable components:
@@ -45,28 +42,28 @@ ecommerce-portal/
 
 
 
-## 🎨 Design Reference
+### 🎨 Design Reference
 
 Create a modern e-commerce homepage UI inspired by large marketplace platforms.
 
-### 1. Global Header (Sticky, Dark Theme)
+#### 1. Global Header (Sticky, Dark Theme)
 - Left: Logo + delivery location
 - Center: Large search bar + category dropdown + search button
 - Right: Language selector, Account menu, Orders, Cart with item count
 - Dark navy/gray background, white text
 
-### 2. Secondary Navigation Bar
+#### 2. Secondary Navigation Bar
 - Horizontal category menu
 - One highlighted button (e.g., Prime membership)
 - Slightly lighter than header
 
-### 3. Hero Section
+#### 3. Hero Section
 - Left: Headline + subtext + yellow CTA
 - Right: Product image placeholder
 - Carousel arrows
 - Blue gradient background
 
-### 4. Main Content Grid
+#### 4. Main Content Grid
 Responsive layout:
 - Desktop: 4 columns
 - Tablet: 2 columns
@@ -78,20 +75,20 @@ Card types:
 - Gift Card Promotion
 - Deals + Sponsored Product
 
-### 5. Design System
+#### 5. Design System
 - 8px spacing system
 - Rounded corners (8–16px)
 - Soft shadows
 - Clean sans-serif font
 - High contrast CTAs
 
-### 6. Accessibility (Mandatory)
+#### 6. Accessibility (Mandatory)
 - Full keyboard navigation
 - Visible focus states
 - WCAG AA contrast
 - Semantic HTML + ARIA labels
 
-### 7. Inter-page Navigation
+#### 7. Inter-page Navigation
 All pages must include:
 - Shared Header
 - NavBar
@@ -101,11 +98,11 @@ All pages must include:
 
 
 
-# 🏛 Government Website Prompt
+## 🏛 Government Website Prompt
 
 Create a new subfolder called **government (Claude code)**.
 
-## 📁 Folder Structure
+### 📁 Folder Structure
 ```bash
 gov-portal/
 ├── index.html
@@ -126,7 +123,7 @@ gov-portal/
 └── main.css
 ```
 
-## 💻 Technology
+### 💻 Technology
 - React + Tailwind CSS
 - Reusable components:
   - TrustBanner
@@ -138,12 +135,10 @@ gov-portal/
   - AnnouncementModule
   - Footer
 
-
-
-## 🎨 Design Goals
+### 🎨 Design Goals
 Modern public service portal inspired by national/city sites.
 
-### Key Sections
+#### Key Sections
 - Trust Banner
 - Sticky Main Header
 - Primary Service Navigation (mega menu)
@@ -152,13 +147,13 @@ Modern public service portal inspired by national/city sites.
 - Service Info Modules
 - Footer
 
-### Design System
+#### Design System
 - Neutral / blue palette
 - Large readable typography
 - Minimal shadows
 - Generous whitespace
 
-### Accessibility (Mandatory)
+#### Accessibility (Mandatory)
 - Full keyboard navigation
 - WCAG AA contrast
 - Screen reader friendly
@@ -166,11 +161,11 @@ Modern public service portal inspired by national/city sites.
 
 
 
-# 📱 Social Media Website Prompt
+## 📱 Social Media Website Prompt
 
 Create a subfolder called **social-media (claude code)**.
 
-## 📁 Folder Structure
+### 📁 Folder Structure
 ```bash
 social-feed/
 ├── index.html
@@ -186,7 +181,7 @@ social-feed/
 ```
 
 
-## 💻 Technology
+### 💻 Technology
 - React + Tailwind CSS
 - Components:
   - SidebarNav
@@ -196,9 +191,9 @@ social-feed/
   - TrendingCard
   - SuggestionCard
 
----
 
-## 🎨 Layout
+
+### 🎨 Layout
 
 3-column layout:
 - Left Sidebar
@@ -210,7 +205,7 @@ Responsive:
 - Tablet: 2 columns
 - Mobile: 1 column + bottom nav
 
-### Features
+#### Features
 - Post composer
 - Feed tabs
 - Interaction row (Like, Comment, Share)
@@ -218,19 +213,18 @@ Responsive:
 - Suggested accounts
 - Sponsored blocks
 
-### Accessibility
+#### Accessibility
 - Full keyboard navigation
 - Visible focus indicators
 - WCAG AA compliance
 - ARIA labels
 
 
-
-# 📰 Mass Media Website Prompt
+## 📰 Mass Media Website Prompt
 
 Create a subfolder called **mass-media (Claude code)**.
 
-## 📁 Folder Structure
+### 📁 Folder Structure
 ```bash
 news-portal/
 ├── index.html
@@ -247,8 +241,9 @@ news-portal/
 ├── components/
 └── styles/
 └── main.css
+```
 
-## 💻 Technology
+### 💻 Technology
 - React + Tailwind CSS
 - Components:
   - GlobalUtilityBar
@@ -263,13 +258,13 @@ news-portal/
   - FeatureBanner
   - SubscriptionModule
   - Footer
-```
 
 
-## 🎨 Editorial Design
+
+### 🎨 Editorial Design
 Inspired by CNN + NYT + BuzzFeed + Vice + Verge.
 
-### Major Systems
+#### Major Systems
 - Utility bar
 - Sticky brand header
 - Category navigation
@@ -280,11 +275,11 @@ Inspired by CNN + NYT + BuzzFeed + Vice + Verge.
 - Subscription blocks
 - Ad placements
 
-### Typography
+#### Typography
 - Serif headlines (legacy mode)
 - Bold sans-serif (digital mode)
 
-### Accessibility
+#### Accessibility
 - Full keyboard navigation
 - Caption-ready videos
 - Screen reader semantic structure
@@ -292,9 +287,7 @@ Inspired by CNN + NYT + BuzzFeed + Vice + Verge.
 
 
 
-# 🎓 Education Platform Prompt
-
-**MASTER PROMPT — Modern Education Platform Ecosystem UI**
+## 🎓 Education Platform Prompt
 
 Inspired by:
 - Coursera
@@ -303,9 +296,9 @@ Inspired by:
 - PowerSchool
 - Khan Academy
 
----
 
-## Global Experience Goals
+
+### Global Experience Goals
 - Learning discovery
 - Structured navigation
 - Fast scanning
@@ -313,16 +306,14 @@ Inspired by:
 - Action-driven CTAs
 
 
-
-## Page Types
+### Page Types
 1. Marketplace Homepage
 2. Learning Tool Landing
 3. Enterprise SaaS Landing
 4. Curriculum Content Page
 
 
-
-## Global Components
+### Global Components
 - GlobalHeader
 - AnnouncementBar
 - HeroCourseDiscovery
@@ -340,16 +331,14 @@ Inspired by:
 - Footer
 
 
-
-## Hero Modes
+### Hero Modes
 - Course Discovery
 - Learning Tool Entry
 - Product Plan Showcase
 - Enterprise SaaS Hero
 
 
-
-## Curriculum Content Layout
+### Curriculum Content Layout
 Left Sidebar:
 - Standards
 - Grade levels
@@ -359,18 +348,18 @@ Main Content:
 - Learning objectives
 - Lesson list
 
----
 
-## Design System
+
+### Design System
 - Blue / Purple primary
 - Accent learning colors
 - Rounded sections
 - Soft shadows
 - Education-friendly typography
 
----
 
-## Accessibility
+
+### Accessibility
 - Keyboard navigation
 - High contrast
 - Semantic HTML
@@ -378,7 +367,7 @@ Main Content:
 
 
 
-# ✅ Implementation Status Check
+## ✅ Implementation Status Check
 
 | Platform        | Mix | Codex | Claude Code |
 |---------------|-----|-------|-------------|
