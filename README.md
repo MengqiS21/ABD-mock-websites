@@ -286,85 +286,340 @@ Inspired by CNN + NYT + BuzzFeed + Vice + Verge.
 - Visible focus states
 
 
+## 🎓 Education Platform Prompt — edu-portal
 
-## 🎓 Education Platform Prompt
-
-Inspired by:
-- Coursera
-- Quizlet
-- Kahoot
-- PowerSchool
-- Khan Academy
+Please create a new subfolder called `edu-portal` inside the current working directory. Inside this subfolder, build a multi-level mockup website with deeper page hierarchy and consistent styling throughout.
 
 
+### 📁 Folder Structure to Create
 
-### Global Experience Goals
-- Learning discovery
-- Structured navigation
-- Fast scanning
-- Institutional trust
-- Action-driven CTAs
-
-
-### Page Types
-1. Marketplace Homepage
-2. Learning Tool Landing
-3. Enterprise SaaS Landing
-4. Curriculum Content Page
-
-
-### Global Components
-- GlobalHeader
-- AnnouncementBar
-- HeroCourseDiscovery
-- HeroLearningTool
-- HeroProductPlans
-- HeroEnterpriseSaaS
-- LogoTrustStrip
-- CategoryQuickGrid
-- LearningModeCard
-- PlanComparisonCard
-- EnterpriseSolutionCard
-- CurriculumSidebar
-- LessonListItem
-- ProgressWidget
-- Footer
+```bash
+edu-portal/
+├── index.html (homepage)
+├── courses/
+│   ├── courses.html (course marketplace)
+│   └── detail.html (single course detail page)
+├── subjects/
+│   └── subjects.html
+├── curriculum/
+│   └── curriculum.html (Khan Academy style content page)
+├── study/
+│   ├── study.html
+│   ├── flashcards/
+│   │   └── flashcards.html
+│   └── test/
+│       └── test.html
+├── plans/
+│   └── plans.html (product/plan comparison page)
+├── enterprise/
+│   └── enterprise.html (PowerSchool style SaaS landing)
+├── dashboard/
+│   └── dashboard.html (student/teacher dashboard)
+├── account/
+│   └── account.html
+├── components/ (shared HTML snippets or JS partials)
+└── styles/
+    └── main.css (shared across all pages)
+```
 
 
-### Hero Modes
-- Course Discovery
-- Learning Tool Entry
-- Product Plan Showcase
-- Enterprise SaaS Hero
+### 💻 Technology Requirements
+
+Use **React + Tailwind CSS**.
+
+- Each page should be a standalone HTML file that loads the shared stylesheet.
+- All pages must share consistent styling.
+- Build the following reusable components:
+
+#### 🔧 Required Reusable Components
+
+- GlobalHeader  
+- AnnouncementBar  
+- HeroCourseDiscovery  
+- HeroLearningTool  
+- HeroProductPlans  
+- HeroEnterpriseSaaS  
+- LogoTrustStrip  
+- CategoryQuickGrid  
+- LearningModeCard  
+- PlanComparisonCard  
+- EnterpriseSolutionCard  
+- CurriculumSidebar  
+- LessonListItem  
+- ProgressWidget  
+- Footer  
 
 
-### Curriculum Content Layout
-Left Sidebar:
-- Standards
-- Grade levels
+### 🎨 Design Reference
 
-Main Content:
-- Subject title
-- Learning objectives
-- Lesson list
+Design a modern multi-mode education platform web UI system inspired by:
+
+- Coursera  
+- Quizlet  
+- Kahoot  
+- PowerSchool  
+- Khan Academy  
+
+Focus on:
+
+- Learning discovery  
+- Trust and institutional credibility  
+- Structured navigation  
+- Scalable content hierarchy  
+- Clear learning pathways  
+
+Images are placeholders. Emphasize layout, hierarchy, and component structure.
 
 
+## 🌍 GLOBAL EXPERIENCE GOALS
 
-### Design System
-- Blue / Purple primary
-- Accent learning colors
-- Rounded sections
-- Soft shadows
-- Education-friendly typography
+Prioritize:
+
+- Learning discovery  
+- Content hierarchy clarity  
+- Fast scanning  
+- Institutional trust  
+- Action-driven CTAs (Start learning, Sign up, Try free, Explore solutions)  
+- Cross-audience support (Students, Teachers, Institutions, Enterprise buyers)
 
 
+## 1️⃣ Utility Announcement Bar (Optional)
 
-### Accessibility
-- Keyboard navigation
-- High contrast
-- Semantic HTML
-- Large clickable areas
+Thin top bar for:
 
+- Terms updates  
+- Security notices  
+- Promotions  
+- Free trial announcements  
+
+Include a right-aligned close button.
+
+
+## 2️⃣ Global Header
+
+Layout:
+
+- **Left:** Platform logo  
+- **Center:** Primary search bar (high priority)  
+- **Right:** Login, Sign up / Start free, Language selector (optional), Create button  
+
+Support two navigation modes:
+
+### A. Category Navigation (Marketplace / SaaS)
+- Courses  
+- Subjects  
+- Products  
+- Solutions  
+- Resources  
+- Company  
+
+### B. Learning Mode Navigation (Learning Tool)
+- Study  
+- Flashcards  
+- Test  
+- Match / Practice  
+- Create  
+
+Header must be **sticky on scroll**.
+
+
+## 🚀 HERO SYSTEM (MULTIPLE MODES)
+
+### 🎯 Hero Mode A — Course Discovery (Coursera Style)
+
+Left:
+- Headline about career or skill growth  
+- Supporting text  
+- Primary CTA  
+- Optional secondary CTA  
+
+Right:
+- Illustration or platform visual placeholder  
+
+Below hero:
+- Segment selector cards:
+  - Start new career  
+  - Gain job skills  
+  - Earn degree  
+
+
+### 🧠 Hero Mode B — Learning Tool Entry (Quizlet Style)
+
+Centered layout:
+- Large question-style headline  
+- Short explanation text  
+- Primary CTA (Sign up free)  
+- Secondary link (Teacher mode)  
+
+Below hero:
+- Large colored learning mode cards:
+  - Study  
+  - Flashcards  
+  - Test  
+  - Match  
+
+Support horizontal scroll.
+
+
+### 💳 Hero Mode C — Product Plan Showcase (Kahoot Style)
+
+Multi-column product cards including:
+
+- Plan name  
+- Audience tag  
+- Price starting text  
+- Primary CTA  
+- Secondary link  
+- Device preview area  
+
+Below:
+- Feature action bar with colored action tiles:
+  - Discover  
+  - Learn  
+  - Present  
+  - Create  
+  - Join  
+
+
+### 🏢 Hero Mode D — Enterprise Education SaaS (PowerSchool Style)
+
+Full-width background overlay hero:
+
+- Large mission statement headline  
+- Supporting description  
+- Primary CTA  
+
+Below hero:
+- Floating feature cards or solution modules  
+
+
+## 🤝 TRUST + PARTNER LOGO STRIP
+
+- Horizontal logo row of:
+  - Universities  
+  - Tech companies  
+  - Education partners  
+
+Use rounded logo chips.
+
+
+## 🔎 FEATURE DISCOVERY MODULES
+
+### Category Quick Links Grid (3–6 Cards)
+- Career path  
+- Skill learning  
+- Degrees  
+- Certificates  
+- Teacher resources  
+
+### Trending / Featured Content Section
+Title + horizontal scroll cards for:
+
+- Popular courses  
+- Trending topics  
+- Weekly picks  
+- AI skills  
+
+
+## 📘 LEARNING TOOL CONTENT MODULES
+
+### Learning Mode Cards
+Large colored cards including:
+
+- Title  
+- Short description  
+- Preview content block  
+- Carousel support  
+
+### Optional Progress / Performance Widget
+Include:
+
+- Circular progress indicator  
+- Time estimate  
+- Correct vs incorrect indicators  
+
+
+## 💰 PRODUCT / PLAN COMPARISON MODULE
+
+3-column layout:
+
+- Plan name  
+- Value proposition  
+- Price line  
+- CTA buttons  
+- Device preview or product screenshot placeholder  
+
+
+## 🏫 ENTERPRISE SOLUTION MODULES
+
+Grid of solution tiles:
+
+- Security  
+- Analytics  
+- Student data  
+- Performance tracking  
+
+
+## 📚 CURRICULUM CONTENT PAGE STRUCTURE
+
+### Left Sidebar
+- Standards or subject navigation  
+- Grade levels (expandable list)
+
+### Main Content
+- Subject title  
+- Course / unit title  
+- Standard description  
+- Learning objective  
+
+### Content List (Lesson Rows)
+- Icon  
+- Lesson title  
+- Type (video / practice / article)
+
+### Content Metadata Tools
+- CSV download icon  
+- Resource export tools  
+
+
+## 🎨 DESIGN SYSTEM
+
+- Primary color: Blue or Purple  
+- Secondary: Accent learning colors  
+- Neutral: Light gray backgrounds  
+- Large friendly headlines  
+- Readable body text  
+- Education-friendly tone  
+- Large card spacing  
+- Rounded container sections  
+- Soft shadow only  
+
+
+## 📱 RESPONSIVE BEHAVIOR
+
+- Desktop: Multi-column layouts, full navigation menus  
+- Tablet: Condensed navigation, 2-column card layout  
+- Mobile: Hamburger menu, stacked learning modules, swipeable card carousels  
+
+
+## ♿ Accessibility Requirements (Mandatory)
+
+- Full keyboard navigation support  
+- Every interactive element must be reachable using Tab  
+- Clearly visible focus states (outline or highlight ring)  
+- High color contrast (WCAG AA minimum)  
+- Screen reader-friendly structure (semantic HTML + ARIA labels)  
+- Clear focus indicators  
+- Large clickable areas throughout  
+
+
+## 🔗 Inter-page Navigation
+
+- Every page must include the shared **GlobalHeader** and **Footer**  
+- All navigation links must correctly link to other pages within the `edu-portal/` structure  
+- Consistent header, navigation bar, and footer across all pages  
+- The site must be fully navigable by Tab key alone  
+- No interactive element should be skipped  
 
 
 ## ✅ Implementation Status Check
