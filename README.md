@@ -630,5 +630,5 @@ Grid of solution tiles:
 | Government    | ✅  | ✅    | ✅          |
 | Social Media  | ✅  | ✅    |             |
 | Mass Media    | ✅  | ✅    |             |
-| Education     | ✅  |       |             |
+| Education     | ✅  | ✅      | ✅            |
 
