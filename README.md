@@ -629,6 +629,6 @@ Grid of solution tiles:
 | E-commerce    | ✅  | ✅    | ✅          |
 | Government    | ✅  | ✅    | ✅          |
 | Social Media  | ✅  | ✅    | ✅          |
-| Mass Media    | ✅  | ✅    |             |
+| Mass Media    | ✅  | ✅    | ✅          |
 | Education     | ✅  | ✅      | ✅            |
 
