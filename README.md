@@ -627,7 +627,7 @@ Grid of solution tiles:
 | Platform        | Mix | Codex | Claude Code | Google Antigravity
 |---------------|-----|-------|-------------|---------------|
 | E-commerce    | ✅  | ✅    | ✅          |              |
-| Government    | ✅  | ✅    | ✅          | ✅ http://localhost:5173/   |
+| Government    | ✅  | ✅    | ✅          | ✅ http://localhost:5173/ *npm run dev*  |
 | Social Media  | ✅  | ✅    | ✅          |              |
 | Mass Media    | ✅  | ✅    | ✅          |              |
 | Education     | ✅  | ✅      | ✅            |              |
