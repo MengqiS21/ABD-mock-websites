@@ -32,8 +32,8 @@ ABD-mock-websites/
 ├── e-commerce*/         # outputs from Codex / Claude / Antigravity / Mix
 ├── government*/         # outputs from Codex / Claude / Antigravity / Mix
 ├── social-media*/       # outputs from Codex / Claude / Antigravity / Mix
-├── mass-media*/         # outputs from Codex / Claude / Mix
-└── education*/          # outputs from Codex / Claude / Mix
+├── mass-media*/         # outputs from Codex / Claude / Antigravity / Mix
+└── education*/          # outputs from Codex / Claude / Antigravity / Mix
 ```
 
 `*` means there are multiple folders for the same category, one per implementation approach.
