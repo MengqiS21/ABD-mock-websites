@@ -45,5 +45,5 @@ ABD-mock-websites/
 | E-commerce    | ✅  | ✅    | ✅          | ✅            |
 | Government    | ✅  | ✅    | ✅          | ✅ http://localhost:5173/ *npm run dev*  |
 | Social Media  | ✅  | ✅    | ✅          | ✅ http://localhost:8082/       |
-| Mass Media    | ✅  | ✅    | ✅          |              |
-| Education     | ✅  | ✅      | ✅            |              |
+| Mass Media    | ✅  | ✅    | ✅          | ✅ http://localhost:5173/       |
+| Education     | ✅  | ✅      | ✅            | ✅ http://localhost:5174/             |
