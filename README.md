@@ -53,7 +53,7 @@ ABD-mock-websites/
 | Platform        | Mix | Codex | Claude Code | Google Antigravity
 |---------------|-----|-------|-------------|---------------|
 | E-commerce    | ✅  | ✅    | ✅          |             |
-| Government    | ✅  | ✅    |           |               |
+| Government    | ✅  | ✅    | ✅          |               |
 | Social Media  | ✅  | ✅    | ✅          |               |
 | Mass Media    | ✅  |     |           |               |
 | Education     | ✅  |       |             |              |
